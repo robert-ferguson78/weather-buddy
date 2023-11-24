@@ -2,7 +2,8 @@
 Weather assistant application IoT project
 
  
-Name: Robert Ferguson 	Student ID: 20104121
+Name: Robert Ferguson
+Student ID: 20104121
 
 Project Description
 This project will connect weather location data forecast and real-world sensor data to give recommendations of tasks based on projected and real atmospheric data, users will be alerted with actionable tasks based on data processed.
