@@ -1,0 +1,61 @@
+{
+  "file": "./models/stations.json",
+  "stations": [
+    {
+      "stationName": "Homer 1",
+      "latitude": "52.246310",
+      "longitude": "-7.139872",
+      "userid": "bca0795f-ddb8-4d6c-b287-5e232ed9e397",
+      "_id": "032b5a8b-900f-4664-aa05-bffdc823ac88"
+    },
+    {
+      "stationName": "Homer 2",
+      "latitude": "53.727192",
+      "longitude": "-6.8769992",
+      "userid": "bca0795f-ddb8-4d6c-b287-5e232ed9e397",
+      "_id": "8edb6bde-adab-4931-856f-004defeae9fb"
+    },
+    {
+      "stationName": "Alpha",
+      "latitude": "53.491285",
+      "longitude": "-9.937571",
+      "userid": "bca0795f-ddb8-4d6c-b287-5e232ed9e397",
+      "_id": "db468c18-4f6d-4bfe-a1c0-1809ebc5d98d"
+    },
+    {
+      "stationName": "Charlie",
+      "latitude": "54.988893",
+      "longitude": "-6.768767",
+      "userid": "bca0795f-ddb8-4d6c-b287-5e232ed9e397",
+      "_id": "a71164b3-ccc1-419e-a748-35c33cd74b2f"
+    },
+    {
+      "stationName": "Delta",
+      "latitude": "51.743597",
+      "longitude": "-9.239995",
+      "userid": "bca0795f-ddb8-4d6c-b287-5e232ed9e397",
+      "_id": "20c050e9-a31f-4523-bd4c-17f15d20a132"
+    },
+    {
+      "stationName": "Jack",
+      "latitude": "53.794162",
+      "longitude": "-7.700388",
+      "userid": "bca0795f-ddb8-4d6c-b287-5e232ed9e397",
+      "_id": "8c5957f5-5cf0-4e84-919a-5af2f02c100f"
+    },
+    {
+      "stationName": "Zena",
+      "latitude": "53.342866",
+      "longitude": "-6.257336",
+      "userid": "bca0795f-ddb8-4d6c-b287-5e232ed9e397",
+      "_id": "52ce3546-de44-4ceb-8513-4a0bf9cdb2fc"
+    },
+    {
+      "stationName": "Bravo",
+      "latitude": "54.913748",
+      "longitude": "-8.226726",
+      "userid": "bca0795f-ddb8-4d6c-b287-5e232ed9e397",
+      "_id": "4da51f8c-5af1-407d-bd6f-d2cf69690b15"
+    }
+  ]
+}
