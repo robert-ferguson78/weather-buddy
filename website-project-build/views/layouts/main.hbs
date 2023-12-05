@@ -1,0 +1,70 @@
+<html lang="en-IE">
+  <!--header start-->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://kit.fontawesome.com/0a68ab4985.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" /> 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/frappe-charts@1.2.4/dist/frappe-charts.min.iife.js"></script>
+    <link rel="stylesheet" href="../stylesheets/main.css" />
+  </head>
+  <!--header end-->
+  <body class="container hero is-fullheight">
+    <!--Banner start-->
+    <section class="hero is-small dark-green">
+      <div class="hero-body columns is-vcentered block">
+        <div class="column is-two-fifths-desktop is-full-mobile mb-1">
+          <p class="title">
+            Welcome to the Weather Station App
+          </p>
+          <p class="subtitle">
+            Add your Weather Station
+          </p>
+        </div>
+        <div class="column is-full-mobile">
+          <div class="columns is-mobile">
+            <div class="column is-2">
+              <img src="https://cdn.glitch.global/80ce3e4b-d8a6-4fd5-8cd5-7803d57b6847/overcast-day-snow.svg" />
+            </div>
+            <div class="column is-2">
+              <img src="https://cdn.glitch.global/80ce3e4b-d8a6-4fd5-8cd5-7803d57b6847/rain.svg" />
+            </div>
+            <div class="column is-2">
+              <img src="https://cdn.glitch.global/80ce3e4b-d8a6-4fd5-8cd5-7803d57b6847/wind-beaufort-2.svg" />
+            </div>
+            <div class="column is-2">
+              <img src="https://cdn.glitch.global/80ce3e4b-d8a6-4fd5-8cd5-7803d57b6847/clear-day.svg" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Banner end-->
+    <!--Content start-->
+    <main>
+      {{{body}}}
+    </main>
+    <!--Content end-->
+    <!--Footer start-->
+    <footer class="footer pt-1 pb-1 has-background-white is-flex-align-items-flex-end mt-auto">
+      <div class="columns">
+        <div class="column">
+          <img src="https://cdn.glitch.global/80ce3e4b-d8a6-4fd5-8cd5-7803d57b6847/city-scape-weather-icons.png" />
+          <div class="columns">
+            <div class="column box dark-green">
+              <div class="content has-text-centered">
+                <p class="has-text-white">
+                  Copyright Weather Station Demo 2023
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--Footer end-->
+  </body>
+</html>

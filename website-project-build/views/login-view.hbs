@@ -1,0 +1,37 @@
+{{> menu active="login"}}
+
+<!--Login content start-->
+<section class="content box">
+    <div class="columns">
+        <!--Login form start-->
+        <div class="column is-half">
+            {{#if message.error}}
+                <div id="user_message" class="notification is-danger">
+                    {{message.error}}
+                </div>
+            {{/if}}
+            <form action="/authenticate" method="POST">
+                <h3 class="subtitle">Login</h3>
+                <!--User info messaging start-->
+                {{!-- #{if loginFail}
+                <div class="notification is-danger">${loginFail}</div>
+                #{/if} --}}
+                <!--User info messaging end-->
+                <div class="field">
+                    <label class="label">Email</label>
+                    <input class="input" placeholder="Email" name="email">
+                </div>
+                <div class="field">
+                    <label class="label">Password</label>
+                    <input class="input" type="password" name="password">
+                </div>
+                <button class="button is-link is-info">Login</button>
+            </form>
+        </div>
+        <!--Login form end-->
+        <!--Animated Graphic start-->
+          {{> animatedgraphic}}
+        <!--Animated Graphic end-->
+    </div>
+</section>
+<!--Login content end-->
