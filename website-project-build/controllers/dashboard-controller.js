@@ -6,11 +6,19 @@ export const dashboardController = {
   // Initial index page to display with view data to pass in
   async index(request, response) {
     const loggedInUser = request.user._id;
+    const stations = await stationStore.getStationsByUserId(loggedInUser);
+    let addStation = false;
+    if (stations.length == 1) {
+      addStation = true;
+    } else {
+      addStation = false;
+    }
 
     // Data to pass into View
     const viewData = {
       title: "Station Dashboard",
-      stations: await stationStore.getStationsByUserId(loggedInUser),
+      stations: stations,
+      addStation: addStation,
     };
 
     // Loop through last reading in Utils/Analytics to diplay last readings based on stations in view data
