@@ -3,7 +3,6 @@ import { initStore } from "../utils/store-utils.js";
 import { stationStore } from "../models/station-store.js";
 import { MongoClient, ObjectId } from 'mongodb';
 
-const db = initStore("users");
 
 const uri = process.env.ATLAS_URI;
 const client = new MongoClient(uri);

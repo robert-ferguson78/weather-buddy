@@ -2,8 +2,6 @@ import { v4 } from "uuid";
 import { initStore } from "../utils/store-utils.js";
 import { MongoClient, ObjectId } from 'mongodb';
 
-const db = initStore("readings");
-
 const uri = process.env.ATLAS_URI;
 const client = new MongoClient(uri);
 
