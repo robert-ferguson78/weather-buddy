@@ -8,7 +8,7 @@ export const stationController = {
   // Initial index page to display with view data to pass in
   async index(request, response) {
     const station = await stationStore.getStationById(request.params.id);
-    let stationReadings = await lastReadings(request.params.id);
+    const stationReadings = await readingStore.getReadingsByStationId(station._id.toString());
     const trendReadings = await openWeatherMap.getDailyReadingsData(
       station.latitude,
       station.longitude,
@@ -20,10 +20,13 @@ export const stationController = {
       latitude: station.latitude,
       longitude: station.longitude,
       station: station,
+      readings: stationReadings,
       trendReadings: trendReadings,
     };
     Object.assign(viewData, stationReadings.reading)
-    console.log("station rendering");
+    // console.log(`station rendering ${JSON.stringify(trendReadings)}`);
+    console.log(`${JSON.stringify(stationReadings)}`); // Add this line
+    console.log(`${JSON.stringify(viewData)}`); // Add this line before rendering the view
     response.render("station-view", viewData);
   },
 

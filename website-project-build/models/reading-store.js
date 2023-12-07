@@ -25,7 +25,11 @@ export const readingStore = {
   async getReadingsByStationId(id) {
     await client.connect();
     const collection = client.db('WeatherBuddy').collection('readings');
-    return await collection.find({ stationid: id }).toArray();
+    // console.log(`Station ID: ${id}`);
+    const objectId = new ObjectId(id); // Need to convert string ID to ObjectId to query Mongo DB
+    // let test1 = await collection.find({ stationid: objectId }).toArray();
+    // console.log(`this is here ${JSON.stringify(test1)}`)
+    return await collection.find({ stationid: objectId }).toArray(); // ObjectId to query
   },
 
   async getReadingById(id) {
