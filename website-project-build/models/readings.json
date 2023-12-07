@@ -210,6 +210,16 @@
       "pressure": 1015,
       "_id": "3450bdaa-eb3d-4463-a933-07dea0c621fe",
       "stationid": "8c5957f5-5cf0-4e84-919a-5af2f02c100f"
+    },
+    {
+      "timeStamp": "2023-12-06 19:56:39",
+      "code": 500,
+      "temperature": 7.88,
+      "windSpeed": 9.46,
+      "windDirection": 148,
+      "pressure": 1002,
+      "_id": "dd8dd3cb-d733-46a4-bb9a-1844175b4704",
+      "stationid": "8e831dff-19e6-470c-ad6c-4d708baa927e"
     }
   ]
 }

@@ -58,11 +58,11 @@
       "_id": "4da51f8c-5af1-407d-bd6f-d2cf69690b15"
     },
     {
-      "stationName": "Test 1",
-      "latitude": "53.29805557",
-      "longitude": "-8.02551270",
+      "stationName": "Rob station",
+      "latitude": "53.49008822",
+      "longitude": "-7.04978943",
       "userid": "211d0384-d945-4883-a6e4-c575f3c5b02a",
-      "_id": "fec4c4f2-2659-47a0-8a29-980bc0c32298"
+      "_id": "8e831dff-19e6-470c-ad6c-4d708baa927e"
     }
   ]
 }
