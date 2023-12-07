@@ -1,55 +1,45 @@
 import { v4 } from "uuid";
 import { initStore } from "../utils/store-utils.js";
+import { MongoClient, ObjectId } from 'mongodb';
 
 const db = initStore("readings");
+
+const uri = process.env.ATLAS_URI;
+const client = new MongoClient(uri);
 
 export const readingStore = {
   // Get all readings
   async getAllReadings() {
-    await db.read();
-    return db.data.readings;
+    await client.connect();
+    const collection = client.db('WeatherBuddy').collection('readings');
+    return await collection.find().toArray();
   },
 
   async addReading(stationId, reading) {
-    await db.read();
-    reading._id = v4();
+    await client.connect();
+    const collection = client.db('WeatherBuddy').collection('readings');
+    reading._id = new ObjectId();
     reading.stationid = stationId;
-    db.data.readings.push(reading);
-    await db.write();
+    await collection.insertOne(reading);
     return reading;
   },
 
-  async getReadingsBystationId(id) {
-    await db.read();
-    return db.data.readings.filter((reading) => reading.stationid === id);
+  async getReadingsByStationId(id) {
+    await client.connect();
+    const collection = client.db('WeatherBuddy').collection('readings');
+    return await collection.find({ stationid: id }).toArray();
   },
 
   async getReadingById(id) {
-    await db.read();
-    return db.data.readings.find((reading) => reading._id === id);
+    await client.connect();
+    const collection = client.db('WeatherBuddy').collection('readings');
+    return await collection.findOne({ _id: new ObjectId(id) });
   },
 
   async deleteReading(id) {
-    await db.read();
-    const index = db.data.readings.findIndex((reading) => reading._id === id);
-    db.data.readings.splice(index, 1);
-    await db.write();
-  },
-
-  async deleteStationReadings(id) {
-     console.log("station delete log", id);
-    await db.read();
-    // loop through readings with id array and filter out the readings to be removed
-    for (let i=0; i < id.length; i++ ) {
-      db.data.readings = db.data.readings.filter(reading => reading.stationid !== id);
-    };
-    console.log(db.data.readings);
-    await db.write();
-  },
-
-  async deleteAllReadings() {
-    db.data.readings = [];
-    await db.write();
+    await client.connect();
+    const collection = client.db('WeatherBuddy').collection('readings');
+    await collection.deleteOne({ _id: new ObjectId(id) });
   },
 
   async updateReading(reading, updatedReading) {

@@ -1,53 +1,56 @@
 import { v4 } from "uuid";
 import { initStore } from "../utils/store-utils.js";
 import { stationStore } from "../models/station-store.js";
+import { MongoClient, ObjectId } from 'mongodb';
 
 const db = initStore("users");
 
+const uri = process.env.ATLAS_URI;
+const client = new MongoClient(uri);
+
 export const userStore = {
   async getAllUsers() {
-    await db.read();
-    return db.data.users;
+    await client.connect();
+    const collection = client.db('WeatherBuddy').collection('users');
+    return await collection.find().toArray();
   },
 
   async addUser(user) {
-    await db.read();
-    user._id = v4();
-    db.data.users.push(user);
-    await db.write();
+    await client.connect();
+    const collection = client.db('WeatherBuddy').collection('users');
+    user._id = new ObjectId();
+    await collection.insertOne(user);
     return user;
   },
 
   async getUserById(id) {
-    await db.read();
-    return db.data.users.find((user) => user._id === id);
+    await client.connect();
+    const collection = client.db('WeatherBuddy').collection('users');
+    return await collection.findOne({ _id: new ObjectId(id) });
   },
 
-  async updateUser(userId, updatedUser)  {
-    const user = await this.getUserById(userId);
-    user.firstName = updatedUser.firstName;
-    user.lastName = updatedUser.lastName;
-    user.password = updatedUser.password;
-    console.log(`${JSON.stringify(updatedUser)}`);
-    await db.write();
+  async updateUser(userId, updatedUser) {
+    await client.connect();
+    const collection = client.db('WeatherBuddy').collection('users');
+    await collection.updateOne({ _id: new ObjectId(userId) }, { $set: updatedUser });
+    return await collection.findOne({ _id: new ObjectId(userId) });
   },
 
   async getUserByEmail(email) {
-    await db.read();
-    return db.data.users.find((user) => user.email === email);
+    await client.connect();
+    const collection = client.db('WeatherBuddy').collection('users');
+    return await collection.findOne({ email: email });
   },
 
   async deleteUserById(id) {
-    await db.read();
-    const index = db.data.users.findIndex((user) => user._id === id);
-    db.data.users.splice(index, 1);
-    // pass in user id to delete stations attached to user
-    await stationStore.deleteStationsById(id);
-    await db.write();
+    await client.connect();
+    const collection = client.db('WeatherBuddy').collection('users');
+    await collection.deleteOne({ _id: new ObjectId(id) });
   },
 
-  async deleteAll() {
-    db.data.users = [];
-    await db.write();
-  },
+  async property() {
+    await client.connect();
+    const collection = client.db('WeatherBuddy').collection('users');
+    await collection.deleteMany({});
+  }
 };

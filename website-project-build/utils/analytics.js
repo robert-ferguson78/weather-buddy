@@ -4,7 +4,7 @@ import { maxMin } from "./maxMin.js";
 import { trends } from "./trends.js";
 
 export const lastReadings = async (id) => {
-  let stationReadings = await readingStore.getReadingsBystationId(id);
+  let stationReadings = await readingStore.getReadingsByStationId(id);
   let array = stationReadings;
   let lastReading = null;
   let displayReadings = 0;
