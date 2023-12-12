@@ -16,3 +16,6 @@ Tools, Technologies, and Equipment (Subject to change)
 Teck stack proposed but subject to change is HTML & CSS, PHP, JavaScript, Python, MySQL, WordPress, MQTT broker, IFTTT service.
 
 GitHub Repo link: https://github.com/robert-ferguson78/weather-buddy
+
+Folder: rabbit-holes
+This folder holds approaches that i explored but did not work and ultimetly cost me time hence the name "rabbit-holes"
