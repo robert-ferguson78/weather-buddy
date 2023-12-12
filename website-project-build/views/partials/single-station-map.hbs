@@ -4,6 +4,7 @@
 </div>
 
 <script>
+  console.log(`what is here {{displayReadings}}`);
 // set up deafault size
 const size = 20;
 // set up defaulyt icon options
@@ -47,7 +48,7 @@ let LeafIcon = L.Icon.extend({
   {{else}}
     marker = L.marker([{{latitude}}, {{longitude}}], {title: "{{title}}", icon: station});
   {{/if}}
-     console.log("{{latestCode}}");
+     //console.log("{{latestCode}}");
      // If there are readigns display all icons and data
       {{#if (greaterOrEqual displayReadings 1)}}
       marker.bindPopup("<span class='popup-stats-ctn title'><strong>{{title}}</strong></span>" 

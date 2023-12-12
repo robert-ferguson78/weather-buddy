@@ -15,6 +15,7 @@ export const lastReadings = async (id) => {
     latestWindSpeed: "No WindSpeed",
     latestPressure: "No Pressure",
   }
+
   if(stationReadings.length > 0) {
     lastReading = stationReadings.length - 1;
     reading.latestCode = stationReadings[lastReading].code;
@@ -42,8 +43,9 @@ export const lastReadings = async (id) => {
     reading.trendPressure = trends.trendDetails(array.map( reading => reading.pressure));
     reading.displayReadings = stationReadings.length;
   }
+  
   return {
     lastReading: lastReading,
-    reading: reading,
+    reading: reading
   }
 };

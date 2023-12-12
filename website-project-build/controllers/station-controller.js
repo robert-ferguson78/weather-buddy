@@ -7,26 +7,30 @@ import { openWeatherMap } from "../utils/openweathermap.js";
 export const stationController = {
   // Initial index page to display with view data to pass in
   async index(request, response) {
-    const station = await stationStore.getStationById(request.params.id);
-    const stationReadings = await readingStore.getReadingsByStationId(station._id.toString());
+    const station = await stationStore.getStationById(request.params.id)
+    //const stationReadings = await readingStore.getReadingsByStationId(station._id.toString());;
+    const stationReadings = await lastReadings(station._id);
     const trendReadings = await openWeatherMap.getDailyReadingsData(
       station.latitude,
       station.longitude,
       process.env.OPENWEATHERMAP_API_KEY
     );
     // Data to pass into View
+    const readings = stationReadings.readings;
     const viewData = {
       title: station.stationName,
-      latitude: station.latitude,
-      longitude: station.longitude,
-      station: station,
-      readings: stationReadings,
-      trendReadings: trendReadings,
+  latitude: station.latitude,
+  longitude: station.longitude,
+  station: station,
+  lastReading: stationReadings.lastReading,
+  reading: stationReadings.reading,
+  trendReadings: trendReadings,
+  iconUrl: stationReadings.iconUrl
     };
     Object.assign(viewData, stationReadings.reading)
-    // console.log(`station rendering ${JSON.stringify(trendReadings)}`);
-    console.log(`${JSON.stringify(stationReadings)}`); // Add this line
-    console.log(`${JSON.stringify(viewData)}`); // Add this line before rendering the view
+    //console.log(`station rendering ${JSON.stringify(reading)}`);
+    //console.log(`${JSON.stringify(iconUrl)}`); // Add this line
+    console.log(viewData); // Add this line before rendering the view
     response.render("station-view", viewData);
   },
 

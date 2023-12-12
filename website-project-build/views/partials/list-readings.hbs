@@ -11,39 +11,39 @@
     </tr>
   </thead>
   <tbody>
-    {{#each readings}}
+    {{#each station.readings}}
     <tr>
       <td label="Date-Time">
-        {{this.timeStamp}}
+        {{timeStamp}}
       </td>
       <td label="Code">
-        {{this.code}}
+        {{code}}
       </td>
       <td label="Temperature">
-        {{this.temperature}}
+        {{temperature}}
       </td>
       <td label="Wind Speed">
-        {{this.windSpeed}}
+        {{windSpeed}}
       </td>
       <td label="Wind Direction">
-        {{this.windDirection}}
+        {{windDirection}}
       </td>
       <td label="Pressure">
-        {{this.pressure}}
+        {{pressure}}
       </td>
       <td label="Delete">
-        <span data-location="{{this._id}}" class="button is-danger" onclick="confirmdelete(this)">Delete Reading</span><br/>
+        <span data-location="{{_id}}" class="button is-danger" onclick="confirmdelete(this)">Delete Reading</span><br/>
         </td>
     </tr>
     <tr>
         <td colspan="7" style="padding:0;margin:0;">
-            <div id="confirmDelete/{{this._id}}" style="display: none;">
+            <div id="confirmDelete/{{_id}}" style="display: none;">
                 <div class="columns is-desktop mt-3 mb-3">
                     <div class="column is-half">
-                        <span data-location="{{this._id}}" onclick="confirmdelete(this)" class="button is-fullwidth">Cancel</span>
+                        <span data-location="{{_id}}" onclick="confirmdelete(this)" class="button is-fullwidth">Cancel</span>
                     </div>
                     <div class="column is-half">
-                        <a href="/station/{{../station._id}}/deletereading/{{this._id}}" class="button is-danger is-fullwidth">Confirm Delete</a>
+                        <a href="/station/{{../station._id}}/deletereading/{{_id}}" class="button is-danger is-fullwidth">Confirm Delete</a>
                     </div>
                 </div>
             </div>
