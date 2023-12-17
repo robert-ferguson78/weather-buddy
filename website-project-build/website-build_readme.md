@@ -122,3 +122,6 @@ Handlebars compiles templates into JavaScript functions. This makes the template
 
 **Bulma framework** (used to build the frontend of site)
 Technology Description: Bulma is a free, open source CSS framework based on Flexbox and built with Sass. It's 100% responsive, fully modular, and available for free.
+
+**Mongo Atlas** (used to save data for site)
+Technology Description: MongoDB Atlas is a fully-managed cloud database service provided by MongoDB. It automates the deployment, scaling, and operations of MongoDB databases in the cloud.
