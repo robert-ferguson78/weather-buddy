@@ -14,9 +14,9 @@ In your project, MQTT could be used for real-time data transmission from various
 ## Table of Contents
 
 - [Installation](#installation)
-- [Brief Description](#brief)
-- [Features Of Website](#features)
-- [Technology Used](#technology)
+- [Brief Description](#brief-description-of-assignment)
+- [Features Of Website](#features-that-have-been-implemented)
+- [Technology Used](#technology-used)
 
 ## Installation
 
