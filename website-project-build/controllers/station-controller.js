@@ -17,20 +17,24 @@ export const stationController = {
     );
     // Data to pass into View
     const readings = stationReadings.readings;
+    console.log(stationReadings.readings);
+    const allStationReadings = await readingStore.getReadingsByStationId(station._id);
+    console.log(allStationReadings);
     const viewData = {
       title: station.stationName,
-  latitude: station.latitude,
-  longitude: station.longitude,
-  station: station,
-  lastReading: stationReadings.lastReading,
-  reading: stationReadings.reading,
-  trendReadings: trendReadings,
-  iconUrl: stationReadings.iconUrl
+      latitude: station.latitude,
+      longitude: station.longitude,
+      station: station,
+      lastReading: stationReadings.lastReading,
+      reading: stationReadings.reading,
+      trendReadings: trendReadings,
+      iconUrl: stationReadings.iconUrl,
+      readings: allStationReadings
     };
     Object.assign(viewData, stationReadings.reading)
     //console.log(`station rendering ${JSON.stringify(reading)}`);
     //console.log(`${JSON.stringify(iconUrl)}`); // Add this line
-    console.log(viewData); // Add this line before rendering the view
+    //console.log(viewData); // Add this line before rendering the view
     response.render("station-view", viewData);
   },
 
