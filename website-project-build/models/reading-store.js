@@ -44,6 +44,12 @@ export const readingStore = {
     await collection.deleteOne({ _id: new ObjectId(id) });
   },
 
+  async deleteReadingsByStationId(id) {
+    await client.connect();
+    const collection = client.db('WeatherBuddy').collection('readings');
+    await collection.deleteMany({ stationid: new ObjectId(id) });
+  },
+
   async updateReading(reading, updatedReading) {
     reading.code = updatedReading.code;
     reading.temp = updatedReading.temp;
