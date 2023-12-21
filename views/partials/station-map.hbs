@@ -5,6 +5,18 @@
 <script>
 // set up deafault size
 const size = 20;
+
+function createIcon(iconUrl) {
+    return L.icon({
+        iconUrl: iconUrl + '.svg',
+        iconSize: [45, 45],
+        iconAnchor: [size/2, size*2],
+        popupAnchor: [11.25, -30]
+    });
+}
+window.createIcon = createIcon; // Make the function globally accessible
+
+
 // set up defaulyt icon options
 let LeafIcon = L.Icon.extend({
     options: {
@@ -13,12 +25,15 @@ let LeafIcon = L.Icon.extend({
         popupAnchor: [11.25, -30]
     }
 });
+
+
+// Define station here, outside of the if block
+let station = new LeafIcon({iconUrl: 'https://cdn.glitch.global/80ce3e4b-d8a6-4fd5-8cd5-7803d57b6847/map-pin-solid-shadow.svg'});
+
 {{#if stations}}
   {{#each stations}}
   {{#if (greaterOrEqual displayReadings 1)}}
-    a{{latestCode}} = new LeafIcon({iconUrl: '{{latestWeatherIconFilled}}.svg'});
-  {{else}}
-    station = new LeafIcon({iconUrl: 'https://cdn.glitch.global/80ce3e4b-d8a6-4fd5-8cd5-7803d57b6847/map-pin-solid-shadow.svg'});
+     a{{latestCode}} = new LeafIcon({iconUrl: '{{latestWeatherIconFilled}}.svg'});
   {{/if}}
   {{/each}}
 {{/if}}
@@ -41,14 +56,22 @@ let LeafIcon = L.Icon.extend({
     return new L.Icon(options);
 };
 
-  // Sets average lat and lng to 0
-  let avgLat = avgLng = 0;
+  // Sets average lat, lng and station count to 0
+  let avgLat = 0;
+  let avgLng = 0;
+  let stationCount = 0;
   // Check for stations
-  {{#if stations}}
+  {{#if allStations}}
   // Iterates through stations and adds markers to map
-    {{#each stations}}
+    {{#each allStations}}
       {{#if (greaterOrEqual displayReadings 1)}}
-        marker = L.marker([{{latitude}}, {{longitude}}], {title: "{{stationName}}", icon: eval(a{{latestCode}})});
+
+      //let customCss = "";
+      {{#if (eq userid ../loggedInUserMap)}}
+        customCss = "map-marker-logged-in-user";
+      {{/if}}
+
+        marker = L.marker([{{latitude}}, {{longitude}}], {title: "{{stationName}}", icon: window.createIcon("{{latestWeatherIcon}}")});
       {{else}}
         marker = L.marker([{{latitude}}, {{longitude}}], {title: "{{stationName}}", icon: station});
       {{/if}}
@@ -61,35 +84,42 @@ let LeafIcon = L.Icon.extend({
                     + "<img src='{{latestWeatherIcon}}.svg'> {{latestWeatherDescription}}" + "<img src='https://cdn.glitch.global/80ce3e4b-d8a6-4fd5-8cd5-7803d57b6847/thermometer.svg'> {{latestTempC}} &#176C <br> {{latestTempF}} &#8457;"
                     + "</span><span class='popup-stats-ctn'>"
                     + "<img src='{{latestWindSpeedIcon}}.svg'> {{latestWindSpeed}} bft" + "<img src='https://cdn.glitch.global/80ce3e4b-d8a6-4fd5-8cd5-7803d57b6847/barometer.svg'> {{latestPressure}} hPa"
+                    {{#if (eq userid ../loggedInUserMap)}}
                     + "</span><span class='popup-stats-ctn btn'>"
                     + "<a href='/station/{{_id}}'>View Station Readings</a>"
                     + "</span>"
+                    {{/if}}
                     );
           {{else}}
           marker.bindPopup("<span class='popup-stats-ctn title'><strong>{{stationName}}</strong></span>" 
                     + "<span class='popup-stats-ctn'>"
                     + "<img src='https://cdn.glitch.global/80ce3e4b-d8a6-4fd5-8cd5-7803d57b6847/compass.svg'> {{latitude}}," + " {{longitude}}"
                     + "</span>"
+                    {{#if (eq userid ../loggedInUserMap)}}
                     + "<span class='popup-stats-ctn btn'>"
                     + "<a href='/station/{{_id}}'>View Station Readings</a>"
                     + "</span>"
+                    {{/if}}
                     );
           {{/if}}
         marker.addTo(map);
+
+        // Increment station count
+        stationCount++;
         
         // Set up variables for lat and lng
         avgLat += {{latitude}};
         avgLng += {{longitude}};
       {{/each}}
       // Calculates average lat and lng
-      avgLat /= {{stations.length}};
-      avgLng /= {{stations.length}};
+      avgLat /= stationCount;
+      avgLng /= stationCount;
       // Sets map view to average lat and lng
-      map.setView([avgLat, avgLng], 6);
+      map.setView([avgLat, avgLng], 7);
       map.doubleClickZoom.disable();
   {{else}}
       // Sets map view to average lat and lng
-      map.setView([53.526948, -7.586303], 6);
+      map.setView([53.526948, -7.586303], 7);
       map.doubleClickZoom.disable();
   {{/if}}
   // ev is an event object (MouseEvent in this case)
