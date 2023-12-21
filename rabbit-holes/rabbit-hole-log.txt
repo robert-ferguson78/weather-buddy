@@ -1,0 +1,75 @@
+------------------ Node_red for reading and writing to Mongo Atlas DB Start ----------------
+
+Tried to use Node-Red to take readings from MQTT broker and insert into my Mongo Atlas DB 
+which i could do with limited success. Reading from Mongo Atlas DB presented challenges 
+as the 2 node packages node-red-contrib-mongodb-aleph and node-red-mongodb would not read
+the _id Object for the Mongo Collections which i needed to referenec fro example:
+- users collection has the _id Object which i need as it is referenced in stationid Object 
+in the Station collection.
+- station collection has stationid Object which references the user collection _id Object
+- readings collection has the staionid Object that connects it to the station _id Object
+
+So havgin issues readings and settign objects in Mongo Atlas caused issues and to fix i would
+need to go over the saved Mongo collections structure which i decided not to do just to adjust 
+for a limitation in Node-red packages (both that i tried). Here are some axmaples of flows that
+worked but ultimetly coudl not set or read the _id Object
+
+----- Work flow out Node Red to write data to DB ------
+- Timestamp input to trigger workflow to Timestamp
+- Function to pass in hard coded values (screenshot of this code is commented out as i tried 
+differnt approches which were not sucessful)
+
+ msg.payload = {
+     timeStamp: "2023-12-11 20:00:00",
+     code: 804,
+     temperature: 7.41,
+     windSpeed: 3.91,
+     windDirection: 177,
+     pressure: 990,
+     stationid: "65723ac8aea4534d4887a555"
+ };
+
+ return msg;
+ msg.payload = {
+         "email": "newuser@example.com"
+ };
+ return msg;
+
+- Function to take the vlaues from Payload Object and place in another object as my previous
+code woudl insert the reasgins as an object inside of collections Object (This function basically stoped
+the sub object creation to try match the Mondo Db Document pattern so the webiste coudl take the redaings 
+and display to userts)
+
+ msg.payload = {
+         "timeStamp": msg.payload.timeStamp,
+         "code": msg.payload.code,
+         "temperature": msg.payload.temperature,
+         "windSpeed": msg.payload.windSpeed,
+         "windDirection": msg.payload.windDirection,
+         "pressure": msg.payload.pressure,
+         "stationid": msg.payload.stationid
+ };
+ return msg;
+
+- tried both Mongo Db packages which set the collection to write and read from (differnt nodes for in and out)
+which did my read data for DB and also write data to DB
+
+----- Work flow in Node Red to read data to DB ------
+- Timestamp input to trigger workflow to Timestamp
+- Function to pass in hard coded values which is email to find (screenshot of this code is commented out as i tried 
+differnt approches which were not sucessful)
+
+msg.payload = {
+    "find": "users",
+    "query": {
+        "document.email":"newuser@example.com",
+    }
+};
+return msg;
+
+- tried both Mongo Db packages which set the collection to write and read from (differnt nodes for in and out)
+which did my read data for DB and also write data to DB
+
+----- Flow Exports for Node Red included in repo folder called "node-red-flow-exprts"-----
+
+------------------------------------------ End ----------------------------------------------

@@ -1,0 +1,196 @@
+[
+    {
+        "id": "cf883e6a9109b341",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ad6474e42c2bdcd5",
+        "type": "inject",
+        "z": "cf883e6a9109b341",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 180,
+        "wires": [
+            [
+                "d2cd05081f359911"
+            ]
+        ]
+    },
+    {
+        "id": "4f687fe3b3d5d499",
+        "type": "debug",
+        "z": "cf883e6a9109b341",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "cea20ee3b7022f66",
+        "type": "debug",
+        "z": "cf883e6a9109b341",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "016217348d7f9806",
+        "type": "mongodb-aleph-out",
+        "z": "cf883e6a9109b341",
+        "mongodb": "18e18e0cc59a42cd",
+        "name": "",
+        "collection": "users",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 630,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d2cd05081f359911",
+        "type": "function",
+        "z": "cf883e6a9109b341",
+        "name": "function 4",
+        "func": "// msg.payload = {\n//     timeStamp: \"2023-12-11 20:00:00\",\n//     code: 804,\n//     temperature: 7.41,\n//     windSpeed: 3.91,\n//     windDirection: 177,\n//     pressure: 990,\n//     stationid: \"65723ac8aea4534d4887a555\"\n// };\n\n// return msg;\n// msg.payload = {\n//         \"email\": \"newuser@example.com\"\n// };\n// return msg;\nmsg.payload = {\n    \"insert\": \"users\",\n    \"document\": {\n        \"email\": \"newuser@example.com\"\n    }\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 300,
+        "wires": [
+            [
+                "630d399776603ff3"
+            ]
+        ]
+    },
+    {
+        "id": "630d399776603ff3",
+        "type": "function",
+        "z": "cf883e6a9109b341",
+        "name": "function 5",
+        "func": "// msg.payload = {\n//         \"timeStamp\": msg.payload.timeStamp,\n//         \"code\": msg.payload.code,\n//         \"temperature\": msg.payload.temperature,\n//         \"windSpeed\": msg.payload.windSpeed,\n//         \"windDirection\": msg.payload.windDirection,\n//         \"pressure\": msg.payload.pressure,\n//         \"stationid\": msg.payload.stationid\n// };\n// return msg;\nmsg.payload = {\n        \"email\": msg.payload.email,\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 300,
+        "wires": [
+            [
+                "016217348d7f9806"
+            ]
+        ]
+    },
+    {
+        "id": "db0071a0a4e98dc0",
+        "type": "mongodb-aleph-in",
+        "z": "cf883e6a9109b341",
+        "mongodb": "18e18e0cc59a42cd",
+        "name": "",
+        "collection": "users",
+        "operation": "find",
+        "x": 650,
+        "y": 420,
+        "wires": [
+            [
+                "4f687fe3b3d5d499"
+            ]
+        ]
+    },
+    {
+        "id": "24b0d2e18d67a4b7",
+        "type": "inject",
+        "z": "cf883e6a9109b341",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 420,
+        "wires": [
+            [
+                "de15894577742b56"
+            ]
+        ]
+    },
+    {
+        "id": "de15894577742b56",
+        "type": "function",
+        "z": "cf883e6a9109b341",
+        "name": "function 6",
+        "func": "msg.payload = {\n    \"find\": \"users\",\n    \"query\": {\n        \"document.email\":\"newuser@example.com\",\n    }\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 420,
+        "wires": [
+            [
+                "db0071a0a4e98dc0"
+            ]
+        ]
+    },
+    {
+        "id": "18e18e0cc59a42cd",
+        "type": "mongodb-aleph-config",
+        "hostname": "removed-for-security-reasons",
+        "topology": "dnscluster",
+        "connectOptions": "",
+        "port": "27017",
+        "db": "WeatherBuddy",
+        "name": "myMongoDb"
+    }
+]
