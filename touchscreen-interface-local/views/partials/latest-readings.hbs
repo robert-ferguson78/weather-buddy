@@ -1,0 +1,142 @@
+{{#if (greaterOrEqual displayReadings 1)}}
+<!--Latest readings start-->
+<div class="columns reading">
+    <!--Station location details start-->
+    <div class="column is-flex">
+        <div class="card dark-green pb-3">
+            <div class="card-header-title is-centered is-size-5-desktop is-size-6-touch">
+                Location
+            </div>
+            <div class="columns is-mobile">
+                <div class="column reading has-text-centered is-half-mobile has-text-right">
+                    Latitude: {{latitude}}<br/>
+                    Longitude: {{longitude}}
+                </div>
+                <div class="column is-half-mobile is-two-fifths">
+                    <img src="https://cdn.glitch.global/80ce3e4b-d8a6-4fd5-8cd5-7803d57b6847/compass.svg">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Station location details end-->
+    <!--Station Weather code start-->
+    <div class="column is-flex">
+        <div class="card dark-green pb-3">
+            <div class="card-header-title is-centered is-size-5-desktop is-size-6-touch">
+                Weather Code
+            </div>
+            <!--Readings Weather code start-->
+            <div class="columns is-mobile">
+                <div class="column reading is-size-6-desktop is-half-mobile">
+                    {{latestCode}} <br/>
+                    {{latestWeatherDescription}}
+                </div>
+                <div class="column is-half-mobile">
+                    <img src="{{latestWeatherIcon}}.svg">
+                </div>
+            </div>
+            <!--Readings Weather code start-->
+        </div>
+    </div>
+    <!--Station Weather code end-->
+    <!--Station Temperature start-->
+    <div class="column is-flex">
+        <div class="card dark-green has-text-right pb-3">
+            <div class="card-header-title is-centered is-size-5-desktop is-size-6-touch">
+                Temperature
+            </div>
+            <!--Readings Temperature start-->
+            <div class="columns is-mobile">
+                <div class="column reading is-size-6-desktop is-half-mobile">
+                    {{latestTempC}} C
+                    <br/>
+                    {{latestTempF}} F
+                </div>
+                <div class="column is-half-mobile">
+                    <img src="https://cdn.glitch.global/80ce3e4b-d8a6-4fd5-8cd5-7803d57b6847/thermometer.svg">
+                </div>
+            </div>
+            <div class="columns is-centered is-mobile">
+            <!-- If there are 2 values to compare display min and max -->
+                {{#if (greaterOrEqual displayReadings 2)}}
+                    <div class="column reading is-9-desktop is-9-mobile has-text-centered-mobile flip-colour">
+                        Min: {{minTemp}} <i class="fa-regular fa-temperature-arrow-down"></i><br/>
+                        Max: {{maxTemp}} <i class="fa-regular fa-temperature-arrow-up"></i><br/>
+                        {{#if (greaterOrEqual displayReadings 3)}}
+                            Trend {{trendTemp.trendText}}: <i class="fa-sharp fa-solid {{trendTemp.trendDirection}}"></i>
+                        {{/if}}
+                    </div>
+                {{/if}}
+            </div>
+            <!--Readings Temperature end-->
+        </div>
+    </div>
+    <!--Station Temperature end-->
+    <!--Station Windspeed start-->
+    <div class="column is-flex">
+        <div class="card dark-green has-text-right pb-3">
+            <div class="card-header-title is-centered is-size-5-desktop is-size-6-touch">
+                Windspeed
+            </div>
+            <!--Readings Windspeed start-->
+            <div class="columns is-mobile">
+                <div class="column reading is-size-6-desktop is-half-mobile">
+                    {{latestWindSpeed}} bft <br/>
+                    <span class="suppliment-text">{{latestWindSpeedDescription}}</span>
+                </div>
+                <div class="column is-half-mobile">
+                    <img src="{{latestWindSpeedIcon}}.svg">
+                </div>
+            </div>
+            <div class="columns is-centered is-mobile">
+                <div class="column reading is-9-desktop is-9-mobile has-text-centered-mobile flip-colour">
+                    {{windCompassReading}} <i class="fa-solid fa-windsock"></i><br/>
+                    Feels Like: {{windChill}} <i class="fa-sharp fa-regular fa-snow-blowing"></i><br/>
+                    <!-- If there are 2 values to compare display min and max -->
+                    {{#if (greaterOrEqual displayReadings 2)}}
+                        Min: {{minWindSpeed}} <i class="fa-solid fa-wind"></i><br/>
+                        Max: {{maxWindSpeed}} <i class="fa-sharp fa-solid fa-tornado"></i><br/>
+                    {{/if}}
+                    {{#if (greaterOrEqual displayReadings 3)}}
+                        Trend {{trendWind.trendText}}: <i class="fa-sharp fa-solid {{trendWind.trendDirection}}"></i>
+                    {{/if}}
+                </div>
+            </div>
+            <!--Readings Windspeed end-->
+        </div>
+    </div>
+    <!--Station Windspeed end-->
+    <!--Station Pressure start-->
+    <div class="column is-flex">
+        <div class="card dark-green has-text-right pb-3">
+            <div class="card-header-title is-size-5-desktop is-size-6-touch">
+                Pressure
+            </div>
+            <!--Readings Pressure start-->
+            <div class="columns is-mobile">
+                <div class="column reading is-size-6-desktop is-half-mobile">
+                    {{latestPressure}} hpa
+                </div>
+                <div class="column is-half-mobile">
+                    <img src="https://cdn.glitch.global/80ce3e4b-d8a6-4fd5-8cd5-7803d57b6847/barometer.svg">
+                </div>
+            </div>
+            <div class="columns is-centered is-mobile">
+            <!-- If there are 2 values to compare display min and max -->
+                {{#if (greaterOrEqual displayReadings 2)}}
+                    <div class="column reading is-9-desktop is-9-mobile has-text-centered-mobile flip-colour">
+                            Min: {{minPressure}} hpa <i class="fa-regular fa-gauge-simple-min"></i><br/>
+                            Max: {{maxPressure}} hpa <i class="fa-regular fa-gauge-max"></i><br/>
+                        {{#if (greaterOrEqual displayReadings 3)}}
+                            Trend {{trendPressure.trendText}}: <i class="fa-sharp fa-solid {{trendPressure.trendDirection}}"></i>
+                        {{/if}}
+                    </div>
+                {{/if}}
+            </div>
+            <!--Readings Pressure end-->
+        </div>
+    </div>
+    <!--Station Pressure end-->
+</div>
+<!--Latest readings end-->
+{{/if}}

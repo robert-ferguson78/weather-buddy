@@ -1,0 +1,25 @@
+{{#each stations}}
+<div class="content box">
+  <h1 class="title">
+      {{stationName}}
+  </h1>
+  {{> latest-readings}}
+  <p>
+    <a href="/station/{{_id}}" class="icon has-text-primary"><i class="fas fa-folder"></i></a>
+  <span data-location="{{_id}}" class="icon has-text-danger" onclick="confirmdelete(this)"><i
+                  class="fas fa-trash"></i></span>
+  </p>
+  <div id="confirmDelete/{{_id}}" style="display: none;">
+          <div class="columns is-mobile">
+              <div class="column is-half">
+                  <span data-location="{{_id}}" onclick="confirmdelete(this)"
+                        class="button is-fullwidth">Cancel</span>
+              </div>
+              <div class="column is-half">
+                  <a href="/dashboard/deletestation/{{_id}}" class="button is-danger is-fullwidth">Confirm
+                      Delete</a>
+              </div>
+          </div>
+      </div>
+</div>
+{{/each}}

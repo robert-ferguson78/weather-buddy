@@ -1,0 +1,6 @@
+<div class="box mt-6 has-background-light">
+    <h4 class="notification is-info has-text-centered is-capitalized has-text-weight-semibold mb-4"><i class="fa-duotone fa-chart-mixed"></i> Trend data 8 day forecast</h4>
+    {{> chart id="temp-chart" type="line" name="Temperature" yMarker=10 values=trendReadings.temperature labels=trendReadings.labels}}
+    {{> chart id="wind-speed-chart" type="line" name="Wind Speed" yMarker=10 values=trendReadings.windSpeed labels=trendReadings.labels}}
+    {{> chart id="pressure-chart" type="line" name="Pressure" yMarker=10 values=trendReadings.pressure labels=trendReadings.labels}}
+</div>

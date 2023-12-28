@@ -1,0 +1,72 @@
+{{> menu active="profile"}}
+
+<!--Profile content start-->
+<section class="content box">
+    {{#if message.error}}
+        <div id="user_message" class="notification is-danger">
+            {{message.error}}
+        </div>
+    {{/if}}
+    {{#if message.success}}
+        <div id="user_message" class="message-success notification is-success">
+            {{message.success}}
+        </div>
+    {{/if}} 
+</div>
+    <div class="columns">
+        <!--Profile form start-->
+        <div class="column is-half">
+            <form action="/profile/updateprofile/{{user._id}}" method="POST">
+                <h3 class="subtitle">{{title}}</h3>
+                <div class="field">
+                    <label class="label">Email (Can not be updated)</label>
+                    <input class="input" placeholder="{{user.email}}" name="email" disabled>
+                </div>
+                <div class="field">
+                    <label class="label">First Name</label>
+                    <input class="input" placeholder="{{user.firstName}}" name="firstName" value="{{user.firstName}}" required>
+                </div>
+                <div class="field">
+                    <label class="label">Last Name</label>
+                    <input class="input" placeholder="{{user.lastName}}" name="lastName" value="{{user.lastName}}" required>
+                </div>
+                <div class="field">
+                    <label class="label">Password</label>
+                    <input id="password" class="input" type="password" name="password" value="{{user.password}}"
+                           onkeyup='check();' required>
+                </div>
+                <div class="field">
+                    <label class="label">Confirm Password</label>
+                    <input id="confrimpassword" class="input" type="password" name="confrimpassword"
+                           value="{{user.password}}" onkeyup='check();' required>
+                    <span id="warning"></span>
+                </div>
+                <div class="columns is-left is-deskop mt-2">
+                    <div class="column">
+                        <button id="btSubmit" class="button is-link is-info is-fullwidth">Update Profile</button>
+                    </div>
+                    <div class="column">
+                        <span data-location="{{user._id}}" class="button is-danger is-fullwidth"
+                              onclick="confirmdelete(this)">Delete Profile & Account</span>
+                    </div>
+                </div>
+                <div id="confirmDelete/{{user._id}}" style="display: none;">
+                    <div class="columns is-mobile">
+                        <div class="column is-half">
+                            <span data-location="{{user._id}}" class="button is-fullwidth" onclick="confirmdelete(this)">Cancel</span>
+                        </div>
+                        <div class="column is-half">
+                            <a href="/deleteaccount/{{user._id}}" class="button is-danger is-fullwidth">Confirm
+                                Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!--Profile form end-->
+        <!--Animated Graphic start-->
+            {{> animatedgraphic}}
+        <!--Animated Graphic end-->
+    </div>
+</section>
+<!--Profile content end-->

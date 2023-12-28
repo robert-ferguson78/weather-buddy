@@ -1,0 +1,54 @@
+{{> menu active="signup"}}
+
+<!--Signup content start-->
+<section class="content box">
+    <div class="columns">
+        <!--Signup form start-->
+        <div class="column is-half">
+            {{#if message.error}}
+                <div id="user_message" class="notification is-danger">
+                    {{message.error}}
+                </div>
+            {{/if}}
+            <form action="/register" method="POST">
+                <h3 class="subtitle">Register</h3>
+                <div class="field is-horizontal field-body">
+                    <div class="field">
+                        <label class="label">First Name</label>
+                        <p class="control is-expanded">
+                            <input class="input" type="text" placeholder="First Name" name="firstName" required>
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="label">Last Name</label>
+                        <p class="control">
+                            <input class="input" type="text" placeholder="Last Name" name="lastName" required>
+                        </p>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Email</label>
+                    <input class="input" type="email" placeholder="Email" name="email" required>
+                </div>
+                <div class="field">
+                    <label class="label">Password</label>
+                    <input id="password" class="input" type="password" name="password" onkeyup='check();' required>
+                </div>
+                <div class="field">
+                    <label class="label">Confirm Password</label>
+                    <input id="confrimpassword" class="input" type="password" name="confrimpassword" onkeyup='check();'
+                           required>
+                    <span id="warning"></span>
+                </div>
+                <button id="btSubmit" class="button is-link is-info">Submit</button>
+            </form>
+        </div>
+        <!--Signup form end-->
+        <!--Sign up Graphic start-->
+        <div class="column is-one-half has-text-centered">
+            <img src="https://cdn.glitch.global/80ce3e4b-d8a6-4fd5-8cd5-7803d57b6847/register-member.png">
+        </div>
+        <!--Sign up Graphic end-->
+    </div>
+</section>
+<!--Signup content end-->

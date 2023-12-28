@@ -1,0 +1,54 @@
+<table class="table mt-6">
+  <thead>
+    <tr>
+      <th>Date/Time</th>
+      <th>Code</th>
+      <th>Temperature</th>
+      <th>Wind Speed</th>
+      <th>Wind Direction</th>
+      <th>Pressure</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each readings}}
+    <tr>
+      <td label="Date-Time">
+        {{timeStamp}}
+      </td>
+      <td label="Code">
+        {{code}}
+      </td>
+      <td label="Temperature">
+        {{temperature}}
+      </td>
+      <td label="Wind Speed">
+        {{windSpeed}}
+      </td>
+      <td label="Wind Direction">
+        {{windDirection}}
+      </td>
+      <td label="Pressure">
+        {{pressure}}
+      </td>
+      <td label="Delete">
+        <span data-location="{{_id}}" class="button is-danger" onclick="confirmdelete(this)">Delete Reading</span><br/>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="7" style="padding:0;margin:0;">
+            <div id="confirmDelete/{{_id}}" style="display: none;">
+                <div class="columns is-desktop mt-3 mb-3">
+                    <div class="column is-half">
+                        <span data-location="{{_id}}" onclick="confirmdelete(this)" class="button is-fullwidth">Cancel</span>
+                    </div>
+                    <div class="column is-half">
+                        <a href="/station/{{../station._id}}/deletereading/{{_id}}" class="button is-danger is-fullwidth">Confirm Delete</a>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

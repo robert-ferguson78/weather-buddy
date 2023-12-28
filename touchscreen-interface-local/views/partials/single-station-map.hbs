@@ -1,0 +1,90 @@
+
+<div class="content box p-0 is-clipped">
+  <div id="map" class="mapBorderColor" style="height: 450px;"></div>
+</div>
+
+<script>
+  console.log(`what is here {{displayReadings}}`);
+// set up deafault size
+const size = 20;
+// set up defaulyt icon options
+let LeafIcon = L.Icon.extend({
+    options: {
+        iconSize: [45, 45],
+        iconAnchor: [size/2, size*2],
+        popupAnchor: [11.25, -30]
+    }
+});
+
+{{#if (greaterOrEqual displayReadings 1)}}
+    a{{latestCode}} = new LeafIcon({iconUrl: '{{latestWeatherIconFilled}}.svg'});
+{{else}}
+    station = new LeafIcon({iconUrl: 'https://cdn.glitch.global/80ce3e4b-d8a6-4fd5-8cd5-7803d57b6847/map-pin-solid-shadow.svg'});
+{{/if}}
+
+  // Initializes map
+  const map = L.map('map'); 
+
+  // Disables double click zoom
+  map.doubleClickZoom.disable();
+
+
+  // Sets map data source and associates with map
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 15,
+      attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  let marker, circle, zoomed;
+
+  L.icon = function (options) {
+    return new L.Icon(options);
+};
+
+  // Sets average lat and lng to 0
+  let avgLat = avgLng = 0;
+  {{#if (greaterOrEqual displayReadings 1)}}
+    marker = L.marker([{{latitude}}, {{longitude}}], {title: "{{title}}", icon: eval(a{{latestCode}})});
+  {{else}}
+    marker = L.marker([{{latitude}}, {{longitude}}], {title: "{{title}}", icon: station});
+  {{/if}}
+     //console.log("{{latestCode}}");
+     // If there are readigns display all icons and data
+      {{#if (greaterOrEqual displayReadings 1)}}
+      marker.bindPopup("<span class='popup-stats-ctn title'><strong>{{title}}</strong></span>" 
+                + "<span class='popup-stats-ctn'>"
+                + "<img src='https://cdn.glitch.global/80ce3e4b-d8a6-4fd5-8cd5-7803d57b6847/compass.svg'> {{latitude}}," + " {{longitude}}"
+                + "</span><span class='popup-stats-ctn'>"
+                + "<img src='{{latestWeatherIcon}}.svg'> {{latestWeatherDescription}}" + "<img src='https://cdn.glitch.global/80ce3e4b-d8a6-4fd5-8cd5-7803d57b6847/thermometer.svg'> {{latestTempC}} &#176C <br> {{latestTempF}} &#8457;"
+                + "</span><span class='popup-stats-ctn'>"
+                + "<img src='{{latestWindSpeedIcon}}.svg'> {{latestWindSpeed}} bft" + "<img src='https://cdn.glitch.global/80ce3e4b-d8a6-4fd5-8cd5-7803d57b6847/barometer.svg'> {{latestPressure}} hPa"
+                + "</span>"
+                + "<span class='popup-stats-ctn btn'>"
+                + "<form class='m-0' action='/station/{{station._id}}/autoreading' method='post'>"
+                + "<button class='button is-fullwidth is-info has-text-weight-bold'>Auto Generate Reading</button>"
+                + "</form>"
+                + "</span>"
+                );
+      {{else}}
+      marker.bindPopup("<span class='popup-stats-ctn title'><strong>{{title}}</strong></span>" 
+                + "<span class='popup-stats-ctn'>"
+                + "<img src='https://cdn.glitch.global/80ce3e4b-d8a6-4fd5-8cd5-7803d57b6847/compass.svg'> {{latitude}}," + " {{longitude}}"
+                + "</span>"
+                + "<span class='popup-stats-ctn btn'>"
+                + "<form class='m-0' action='/station/{{station._id}}/autoreading' method='post'>"
+                + "<button class='button is-fullwidth is-info has-text-weight-bold'>Auto Generate Reading</button>"
+                + "</form>"
+                + "</span>"
+                );
+      {{/if}}
+    marker.addTo(map);
+    
+    avgLat += {{latitude}};
+    avgLng += {{longitude}};
+ 
+  // Sets map view to average lat and lng
+  map.setView([avgLat, avgLng], 12);
+  map.doubleClickZoom.disable();
+  // Adds locate control to map
+  L.control.locate().addTo(map);
+</script>

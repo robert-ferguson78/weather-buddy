@@ -1,0 +1,221 @@
+/*
+CSS sections
+- Readings
+- Main content
+- Navigation
+- Colour
+- 404
+- iframe map
+- footer
+- table
+ */
+
+/* Readings */
+.reading .columns {
+    align-items: center;
+    text-align: right;
+}
+
+.dark-green .card-header-title {
+    font-size: 1.7em;
+}
+
+/* Main content */
+main {
+    padding-bottom: 30px;
+}
+
+/* Navigation */
+.hero main .navbar {
+    margin-bottom: 30px;
+}
+
+.hero main .navbar-burger {
+    color: #ffffff;
+}
+
+@media screen and (max-width: 600px) {
+    .hero.is-fullheight .hero-body.block {
+        display: block;
+    }
+}
+
+/* Colour */
+.hero.is-info {
+    background-color: red;
+    color: #fff;
+}
+
+.hero main .navbar {
+    background-color: #476C5E;
+}
+
+.hero main .navbar-item, .navbar-link {
+    color: #ffffff;
+}
+
+.hero main .navbar-brand a.navbar-item:hover,
+.hero main a.navbar-item:hover {
+    background-color: #CEF09D;
+    color: #0a0a0a;
+}
+
+.has-background-light-green {
+    background-color: #CEF09D;
+}
+
+body .dark-green,
+footer .dark-green {
+    background-color: #083643;
+    color: #ffffff;
+    width: 100%;
+}
+
+.dark-green .card-header-title {
+    color: #ffffff;
+}
+
+.dark-green .title,
+.dark-green .subtitle {
+    color: #fff;
+}
+
+.suppliment-text {
+    font-size: 12px;
+}
+
+.has-background-light {
+    border: solid 1px rgba(0, 0, 0, .1);
+}
+
+.flip-colour {
+    background-color: #ffffff;
+    color: #083643;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+@media screen and (max-width: 1023px) {
+    .navbar-menu {
+        background-color: #083643;
+    }
+}
+
+/* 404 */
+.four_zero_four_bg {
+    background-image: url(../images/caveman.gif);
+    height: 400px;
+    background-position: center;
+}
+
+/* iframe map */
+iframe {
+    width: 100%;
+    min-height: 50vh;
+}
+
+/* footer */
+.footer .dark-green.box {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.footer {
+    overflow: hidden;
+}
+
+/* table */
+
+/* Leafmap styling */
+.leaflet-popup {
+    min-width: 235px;
+}
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    background-color: #083643;
+    color: #ffffff;
+}
+.leaflet-popup-content-wrapper strong {
+    color: #083643;
+    font-size: 18px;
+}
+.leaflet-popup-content-wrapper a {
+    background-color: #009e86;
+    color: #ffffff;
+    padding: 5px 7px;
+    border-radius: 3px;
+}
+.popup-stats-ctn {
+    display: block;
+    display: flex;
+    align-items: center;
+    margin-top: -5px;
+}
+.popup-stats-ctn.title {
+    background-color: #ffffff;
+    padding: 5px 3px;
+    display: block;
+    text-align: center;
+    margin: 7px auto;
+    border-radius: 5px;
+}
+.popup-stats-ctn.btn {
+    margin: 7px auto;
+    justify-content: center;
+}
+.popup-stats-ctn img {
+    max-height:35px;
+}
+.leaflet-container a.leaflet-popup-close-button,
+.leaflet-container a.leaflet-popup-close-button:hover, 
+.leaflet-container a.leaflet-popup-close-button:focus {
+    color: #ffffff;
+}
+
+img.leaflet-marker-icon {
+    background-color: rgba(000,000,000,.4);
+    border-radius: 100%;
+}
+.leaflet-marker-pane img[src^="https://cdn.glitch.global/80ce3e4b-d8a6-4fd5-8cd5-7803d57b6847/map-pin-solid-shadow.svg"] {
+    background-color:rgba(000,000,000,.0)
+}
+
+/* charts styling */
+.graph-svg-tip.comparison span.title {
+    font-size: 16px;
+    color: #ffffff;
+    margin: 8px 5px;
+    padding: 0px;
+    text-align: center;
+}
+.graph-svg-tip.comparison span.title strong {
+    display: none;
+}
+.graph-svg-tip.comparison ul.data-point-list, 
+.graph-svg-tip.comparison ul.data-point-list li {
+    margin-top:0px;
+    padding-top: 0px;
+}
+
+/* reference to this table responsive code is here https://medium.com/allenhwkim/mobile-friendly-table-b0cb066dbc0e */
+@media screen and (max-width: 600px) {
+    table thead {
+        display: none;
+    }
+
+    table td {
+        display: flex;
+    }
+
+    table td::before {
+        content: attr(label);
+        font-weight: bold;
+        width: 120px;
+        min-width: 120px;
+    }
+}
+
+/* for touch screeen */
+.hero-body img {
+    max-height: 80px;
+  }
