@@ -50,6 +50,7 @@ def get_db():
             client = MongoClient(mongo_uri)
             db = client.WeatherBuddy
             # The ismaster command is cheap and does not require auth.
+            # This is a quick way to check if DB is up and running
             db.command('ismaster')
             return db
         except errors.ServerSelectionTimeoutError as err:
