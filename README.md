@@ -18,6 +18,9 @@ This project will connect weather location data, forecast and real-world sensor 
 - OpenWeather API will be used to give user fall back option and also to facilitate supplement data from local readings to push complete data set to MongoDb
 - Node-red will be used to pass data from MQTT Broker (outside and inside) to localhost databases
 - IFTTT to automate tasks for notifications to user.
+- Raspberry pi's (multiple pi's will be used)
+- TouchScreen for interaction with local version of site (seperate from hosted cloud site)
+- Sense hat for led colour display
 
 ## Teck stack proposed but (Subject to change) is
 - HTML & CSS (Bulma plus custom)
@@ -62,4 +65,4 @@ This folder is for the website that accompanies the Weather-Buddy application wh
 This folder is for my python script that auto runs in the background on a raspberry pi which automates, the process of adding a live data set of weather readings from the weather station together with weather code from OpenWeather API to the MongoDB for the website to display. To trigger IFTTT when certain conditions are meet with custom notifications with passed data variables used in messaging.
 
 ### rabbit-holes
-This folder holds approaches that i explored but did not work and ultimetly cost me time hence the name "rabbit-holes", but it did provide knowledge in what did not and also what did work that ultimetly came down to decisions of suitbility of integration or use another flexible approach.
+This folder holds approaches that i explored but did not work and ultimetly cost me time hence the name "rabbit-holes", but it did provide knowledge in what did not and also what did work that ultimetly came down to decisions of suitbility of integration or use another flexiblechmod +x /home/robert/sensehat/sensehat_readings.py approach.
