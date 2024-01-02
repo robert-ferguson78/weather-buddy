@@ -60,3 +60,9 @@ Emoji's were sourced from below link (seranc for emoji's)
 https://emojidb.org/scale-emojis?
 
 There are 2 distinct data sources displayed in Grafana which are outside weather data and inside weather data which are overlayed to show differences for example temperature outside vs temperatire inside (goal would be to add in more data sources inside to build out this dashboard - not achievable in current time frame of assignment).
+
+## Sreenshots of Grafana admin dashboard and webiste iframe dashboard
+
+![Grafana Admin Dashboard](image-assets/readme-images/grafana-main-admin-dashboard.png)
+
+![Grafana Website Dashboard with Iframe](image-assets/readme-images/grafana-main-admin-dashboard.png)
