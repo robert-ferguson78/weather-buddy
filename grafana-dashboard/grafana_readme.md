@@ -191,7 +191,7 @@ This requires 2 queries for outsode and inside influxdb data buckets
     |> map(fn: (r) => ({ r with _field: "Inside Humidity" }))
     ```
 
-![Grafana humidity panel](../image-assets/readme-images/hunidity.png)
+![Grafana humidity panel](../image-assets/readme-images/humidity.png)
 
 🧭 Pressure hpa (this is a Time series panel)
 This requires 2 queries for outsode and inside influxdb data buckets
