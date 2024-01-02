@@ -30,7 +30,7 @@ RetentionPolicy: InfluxDB automatically deletes old data that is no longer neede
 ## Installation
 
 ### Using Portainer to create a docker container:
-Grafana docker container from DockerHub url: https://hub.docker.com/_/influxdb
+InfluxDb docker container from DockerHub url: https://hub.docker.com/_/influxdb
 
 #### Portainer create new docker file settings:
 
