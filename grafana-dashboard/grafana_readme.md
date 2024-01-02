@@ -1,4 +1,13 @@
-# Container for grafana
+# Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Dasboard Screenshots](#Sreenshots-of-Grafana-admin-dashboard-and-webiste-iframe-dashboard)
+- [InfluxDB queries for dashboard panels](#InfluxDB-queries-for-dashboard-panels)
+
+---
+
+## Container for grafana
 
 Grafana is an open-source platform for monitoring and observability. It allows you to query, visualize, alert on, and understand your metrics no matter where they are stored. In other words, you can create, explore, and share dashboards with your team and foster a data-driven culture.
 
@@ -12,14 +21,7 @@ Datasources: Grafana supports a wide range of databases, including but not limit
 
 Annotations: You can annotate your graphs with log events, deployments, or any other event data from your systems.
 
----
-
-## Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Dasboard Screenshots](#Sreenshots-of-Grafana-admin-dashboard-and-webiste-iframe-dashboard)
-- [InfluxDB queries for dashboard panels](#InfluxDB-queries-for-dashboard-panels)
+>> [Back to Top](#Table-of-Contents)
 
 ---
 
@@ -52,6 +54,8 @@ Command & logging (settings)
     - GF_SECURITY_COOKIE_SAMESITE: disabled (this allows iframe which is disallowed by default)
 - Restart policy: Unless Stopped
 
+>> [Back to Top](#Table-of-Contents)
+
 ---
 
 ## Usage
@@ -63,6 +67,8 @@ https://emojidb.org/scale-emojis?
 
 There are 2 distinct data sources displayed in Grafana which are outside weather data and inside weather data which are overlayed to show differences for example temperature outside vs temperatire inside (goal would be to add in more data sources inside to build out this dashboard - not achievable in current time frame of assignment).
 
+>> [Back to Top](#Table-of-Contents)
+
 ## Sreenshots of Grafana admin dashboard and webiste iframe dashboard
 
 ### Grafana Admin Dashboard
@@ -70,6 +76,8 @@ There are 2 distinct data sources displayed in Grafana which are outside weather
 
 ### Grafana Website Dashboard with Iframe
 ![Grafana Website Dashboard with Iframe](../image-assets/readme-images/grafana-local-site-dashboard.png)
+
+>> [Back to Top](#Table-of-Contents)
 
 ---
 
@@ -210,3 +218,5 @@ This requires 2 queries for outsode and inside influxdb data buckets
     |> map(fn: (r) => ({ r with _field: "Inside hpa" }))
     ```
 ![Grafana HPA pressure panel](../image-assets/readme-images/pressure-hpa.png)
+
+>> [Back to Top](#Table-of-Contents)
