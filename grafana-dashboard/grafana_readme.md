@@ -63,6 +63,6 @@ There are 2 distinct data sources displayed in Grafana which are outside weather
 
 ## Sreenshots of Grafana admin dashboard and webiste iframe dashboard
 
-![Grafana Admin Dashboard](image-assets/readme-images/grafana-main-admin-dashboard.png)
+![Grafana Admin Dashboard](../image-assets/readme-images/grafana-main-admin-dashboard.png)
 
-![Grafana Website Dashboard with Iframe](image-assets/readme-images/grafana-main-admin-dashboard.png)
+![Grafana Website Dashboard with Iframe](../image-assets/readme-images/grafana-main-admin-dashboard.png)
