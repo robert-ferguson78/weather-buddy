@@ -146,7 +146,7 @@ Colour and text styling is done in the edit sidepanel of this edit panel screen
     |> map(fn: (r) => ({ r with _field: "Rainfall mm" }))
     ```
 
-🌡 Temperature  (this is a Time series panel)
+🌡 Temperature (this is a Time series panel)
 This requires 2 queries for outsode and inside influxdb data buckets
 
     ```
@@ -161,4 +161,38 @@ This requires 2 queries for outsode and inside influxdb data buckets
     |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
     |> filter(fn: (r) => r._measurement == "temperature")
     |> map(fn: (r) => ({ r with _field: "Inside Temperature" }))
+    ```
+
+♨ Humidity (this is a Time series panel)
+This requires 2 queries for outsode and inside influxdb data buckets
+
+    ```
+    from(bucket: "weather_readings")
+    |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+    |> filter(fn: (r) => r._measurement == "humidity")
+    |> map(fn: (r) => ({ r with _field: "Outside Humidity" }))
+    ```
+
+    ```
+    from(bucket: "indoor_upstairs_landing")
+    |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+    |> filter(fn: (r) => r._measurement == "humidity")
+    |> map(fn: (r) => ({ r with _field: "Inside Humidity" }))
+    ```
+
+🧭 Pressure hpa (this is a Time series panel)
+This requires 2 queries for outsode and inside influxdb data buckets
+
+    ```
+    from(bucket: "weather_readings")
+    |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+    |> filter(fn: (r) => r._measurement == "pressure")
+    |> map(fn: (r) => ({ r with _field: "Outside hpa" }))
+    ```
+
+    ```
+    from(bucket: "indoor_upstairs_landing")
+    |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+    |> filter(fn: (r) => r._measurement == "pressure")
+    |> map(fn: (r) => ({ r with _field: "Inside hpa" }))
     ```
