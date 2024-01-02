@@ -25,12 +25,12 @@ Annotations: You can annotate your graphs with log events, deployments, or any o
 ## Installation
 
 ### Using Portainer to create a docker container:
-Grafana docjer container from DockerHub url: https://hub.docker.com/r/grafana/grafana
+Grafana docker container from DockerHub url: https://hub.docker.com/r/grafana/grafana
 
 #### Portainer create new docker file settings:
 
-Image (Docker.io): grafana:latest
-Always pull the image: On
+- Image (Docker.io): grafana:latest
+- Always pull the image: On
 
 #### Advanced settings:
 
