@@ -18,7 +18,7 @@ Annotations: You can annotate your graphs with log events, deployments, or any o
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Screenshots](#Sreenshots-of-Grafana-admin-dashboard-and-webiste-iframe-dashboard)
+- [Dasboard Screenshots](#Sreenshots-of-Grafana-admin-dashboard-and-webiste-iframe-dashboard)
 - [InfluxDB queries for dashboard panels](#InfluxDB-queries-for-dashboard-panels)
 
 ---
@@ -84,6 +84,8 @@ Title 💨 Wind Speed bft (this is a Stat panel)
     |> map(fn: (r) => ({ r with _field: "Wind Speed bft" }))
     ```
 
+![Grafana wind speed panel](../image-assets/readme-images/wind-speed.png)
+
 Hidden Block (this is a text panel)
 This block runs a script that passes the height of dashboard from iframe to the parent site so there are no scroll bars in the iframe
 
@@ -117,6 +119,7 @@ This block runs a script that passes the height of dashboard from iframe to the 
     |> filter(fn: (r) => r._measurement == "air_quality")
     |> map(fn: (r) => ({ r with _field: "Air Quality 0-500" }))
     ```
+![Grafana air quality panel](../image-assets/readme-images/air-quality.png)
 
 🚩 Wind Direction (this is a Canvas panel)
 Colour and text styling is done in the edit sidepanel of this edit panel screen
@@ -128,6 +131,8 @@ Colour and text styling is done in the edit sidepanel of this edit panel screen
     |> map(fn: (r) => ({ r with _field: "Outside wind direction" }))
     ```
 
+![Grafana wind direction panel](../image-assets/readme-images/wind-direction.png)
+
 💡 Outisde Light (this is a Time series panel)
 
     ```
@@ -137,6 +142,8 @@ Colour and text styling is done in the edit sidepanel of this edit panel screen
     |> map(fn: (r) => ({ r with _field: "Outside Light" }))
     ```
 
+![Grafana light panel](../image-assets/readme-images/outside-light.png)
+
 🌧️ Rainfall mm (this is a Time series panel)
 
     ```
@@ -145,6 +152,8 @@ Colour and text styling is done in the edit sidepanel of this edit panel screen
     |> filter(fn: (r) => r._measurement == "rain")
     |> map(fn: (r) => ({ r with _field: "Rainfall mm" }))
     ```
+
+![Grafana rainfall panel](../image-assets/readme-images/rainfall.png)
 
 🌡 Temperature (this is a Time series panel)
 This requires 2 queries for outsode and inside influxdb data buckets
@@ -163,6 +172,8 @@ This requires 2 queries for outsode and inside influxdb data buckets
     |> map(fn: (r) => ({ r with _field: "Inside Temperature" }))
     ```
 
+![Grafana temperature panel](../image-assets/readme-images/temperature.png)
+
 ♨ Humidity (this is a Time series panel)
 This requires 2 queries for outsode and inside influxdb data buckets
 
@@ -180,6 +191,8 @@ This requires 2 queries for outsode and inside influxdb data buckets
     |> map(fn: (r) => ({ r with _field: "Inside Humidity" }))
     ```
 
+![Grafana humidity panel](../image-assets/readme-images/hunidity.png)
+
 🧭 Pressure hpa (this is a Time series panel)
 This requires 2 queries for outsode and inside influxdb data buckets
 
@@ -196,3 +209,4 @@ This requires 2 queries for outsode and inside influxdb data buckets
     |> filter(fn: (r) => r._measurement == "pressure")
     |> map(fn: (r) => ({ r with _field: "Inside hpa" }))
     ```
+![Grafana HPA pressure panel](../image-assets/readme-images/pressure-hpa.png)
