@@ -77,44 +77,88 @@ There are 2 distinct data sources displayed in Grafana which are outside weather
 
 Title 💨 Wind Speed bft (this is a Stat panel)
 
-```
-from(bucket: "weather_readings")
-  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
-  |> filter(fn: (r) => r._measurement == "wind speed")
-  |> map(fn: (r) => ({ r with _field: "Wind Speed bft" }))
-```
+    ```
+    from(bucket: "weather_readings")
+    |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+    |> filter(fn: (r) => r._measurement == "wind speed")
+    |> map(fn: (r) => ({ r with _field: "Wind Speed bft" }))
+    ```
 
 Hidden Block (this is a text panel)
 This block runs a script that passes the height of dashboard from iframe to the parent site so there are no scroll bars in the iframe
 
-```javascript
-<script>
-var intervalId = setInterval(function() {
-  var element = document.querySelector('.css-1978mzo-canvas-content');
-  if (element) {
-    var height = element.scrollHeight;
-    height += 50; // account for top bar space
-    console.log('Sending height:', height);
-    window.parent.postMessage({ 'iframeHeight': height }, '*');
-  }
-}, 1000); // Send height every 1 second
+    ```javascript
+    <script>
+    var intervalId = setInterval(function() {
+    var element = document.querySelector('.css-1978mzo-canvas-content');
+    if (element) {
+        var height = element.scrollHeight;
+        height += 50; // account for top bar space
+        console.log('Sending height:', height);
+        window.parent.postMessage({ 'iframeHeight': height }, '*');
+    }
+    }, 1000); // Send height every 1 second
 
-// Listen for confirmation message from parent page
-window.addEventListener('message', function(event) {
-  if (event.data === 'height received') {
-    console.log('Parent page has received the height');
-    clearInterval(intervalId); // Stop sending height
-  }
-});
-</script>
-```
+    // Listen for confirmation message from parent page
+    window.addEventListener('message', function(event) {
+    if (event.data === 'height received') {
+        console.log('Parent page has received the height');
+        clearInterval(intervalId); // Stop sending height
+    }
+    });
+    </script>
+    ```
 
 🌐 House Air Quality % (this is a Gauge panel)
 
-```
-from(bucket: "indoor_upstairs_landing")
-  |> range(start: -1h)
-  |> filter(fn: (r) => r._measurement == "air_quality")
-  |> map(fn: (r) => ({ r with _field: "Air Quality 0-500" }))
-```
+    ```
+    from(bucket: "indoor_upstairs_landing")
+    |> range(start: -1h)
+    |> filter(fn: (r) => r._measurement == "air_quality")
+    |> map(fn: (r) => ({ r with _field: "Air Quality 0-500" }))
+    ```
 
+🚩 Wind Direction (this is a Canvas panel)
+Colour and text styling is done in the edit sidepanel of this edit panel screen
+
+    ```
+    from(bucket: "weather_readings")
+    |> range(start: -6h)
+    |> filter(fn: (r) => r._measurement == "wind letter")
+    |> map(fn: (r) => ({ r with _field: "Outside wind direction" }))
+    ```
+
+💡 Outisde Light (this is a Time series panel)
+
+    ```
+    from(bucket: "weather_readings")
+    |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+    |> filter(fn: (r) => r._measurement == "light")
+    |> map(fn: (r) => ({ r with _field: "Outside Light" }))
+    ```
+
+🌧️ Rainfall mm (this is a Time series panel)
+
+    ```
+    from(bucket: "weather_readings")
+    |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+    |> filter(fn: (r) => r._measurement == "rain")
+    |> map(fn: (r) => ({ r with _field: "Rainfall mm" }))
+    ```
+
+🌡 Temperature  (this is a Time series panel)
+This requires 2 queries for outsode and inside influxdb data buckets
+
+    ```
+    from(bucket: "weather_readings")
+    |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+    |> filter(fn: (r) => r._measurement == "temperature")
+    |> map(fn: (r) => ({ r with _field: "Outside Temperature" }))
+    ```
+
+    ```
+    from(bucket: "indoor_upstairs_landing")
+    |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+    |> filter(fn: (r) => r._measurement == "temperature")
+    |> map(fn: (r) => ({ r with _field: "Inside Temperature" }))
+    ```
