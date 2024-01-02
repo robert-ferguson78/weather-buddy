@@ -30,7 +30,7 @@ Grafana docker container from DockerHub url: https://hub.docker.com/r/grafana/gr
 
 #### Portainer create new docker file settings:
 
-- Image (Docker.io): grafana:latest
+- Image (Docker.io): grafana/grafana:latest
 - Always pull the image: On
 
 #### Advanced settings:
