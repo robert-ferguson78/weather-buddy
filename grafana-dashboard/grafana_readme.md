@@ -77,8 +77,9 @@ There are 2 distinct data sources displayed in Grafana which are outside weather
 
 Title 💨 Wind Speed bft (this is a Stat panel)
 
+```
 from(bucket: "weather_readings")
-    |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
-    |> filter(fn: (r) => r._measurement == "wind speed")
-    |> map(fn: (r) => ({ r with _field: "Wind Speed bft" }))
-
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r._measurement == "wind speed")
+  |> map(fn: (r) => ({ r with _field: "Wind Speed bft" }))
+```
