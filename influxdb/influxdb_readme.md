@@ -3,8 +3,7 @@
 - [Container Description](#Container-for-influxdb)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Dasboard Screenshots](#Sreenshots-of-Grafana-admin-dashboard-and-webiste-iframe-dashboard)
-- [InfluxDB queries for dashboard panels](#InfluxDB-queries-for-dashboard-panels)
+- [Dasboard Screenshots](#Sreenshots-of-Infuxdb-admin-dashboard-and-webiste-iframe-dashboard)
 
 ---
 
@@ -67,5 +66,17 @@ Volumns (persistent storage for InfluxDb)
 ## Usage
 
 Inlfuxdb is used in this project assingment to store reading data by date for the outside-weather-station and indoor reading board sensors as seperate buckets to be queried in this case by Grafana appication, to build dashboard to visualise reading data collected over time.
+
+>> [Back to Top](#Table-of-Contents)
+
+---
+
+## Sreenshots of InfuxDb admin dashboard and webiste iframe dashboard
+
+### Main Influx Admin Dashboard with all data selected for outside wetaher readings (mouse hovered over chart for pop out data overlay)
+![Grafana Admin Dashboard](../image-assets/readme-images/outside-weather-readings.png)
+
+### Main Influx Admin Dashboard with all data selected for inside readings (mouse hovered over chart for pop out data overlay)
+![Grafana Admin Dashboard](../image-assets/readme-images/inside-influxdb-readings.png)
 
 >> [Back to Top](#Table-of-Contents)
