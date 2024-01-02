@@ -19,6 +19,7 @@ Annotations: You can annotate your graphs with log events, deployments, or any o
 - [Installation](#installation)
 - [Usage](#usage)
 - [Screenshots](#Sreenshots-of-Grafana-admin-dashboard-and-webiste-iframe-dashboard)
+- [InfluxDB queries for dashboard panels](#InfluxDB-queries-for-dashboard-panels)
 
 ---
 
@@ -69,3 +70,15 @@ There are 2 distinct data sources displayed in Grafana which are outside weather
 
 ### Grafana Website Dashboard with Iframe
 ![Grafana Website Dashboard with Iframe](../image-assets/readme-images/grafana-local-site-dashboard.png)
+
+---
+
+## InfluxDB queries for dashboard panels
+
+Title 💨 Wind Speed bft (this is a Stat panel)
+
+from(bucket: "weather_readings")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r._measurement == "wind speed")
+  |> map(fn: (r) => ({ r with _field: "Wind Speed bft" }))
+
