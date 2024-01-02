@@ -18,7 +18,7 @@ Annotations: You can annotate your graphs with log events, deployments, or any o
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Screenshots](#screenshots)
+- [Screenshots](#Sreenshots-of-Grafana-admin-dashboard-and-webiste-iframe-dashboard)
 
 ---
 
