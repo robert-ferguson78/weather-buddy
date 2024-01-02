@@ -214,3 +214,8 @@ img.leaflet-marker-icon {
         min-width: 120px;
     }
 }
+
+/* for touch screeen */
+.hero-body img {
+    max-height: 80px;
+  }

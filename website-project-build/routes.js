@@ -12,6 +12,7 @@ import { dashboardController } from "./controllers/dashboard-controller.js";
 import { aboutController } from "./controllers/about-controller.js";
 import { stationController } from "./controllers/station-controller.js";
 import { welcomeController } from "./controllers/welcome-controller.js";
+import { stationDataController } from "./controllers/station-data-controller.js";
 
 export const router = express.Router();
 
@@ -30,6 +31,7 @@ router.post("/register", accountsController.register);
 router.post("/authenticate", accountsController.authenticate);
 router.get("/welcome", welcomeController.index);
 router.get("/about", aboutController.index);
+router.get("/station-data", stationDataController.index);
 
 // Set up restricted routes with check for logged in status
 router.get("/dashboard", checkUserAuth(), dashboardController.index);

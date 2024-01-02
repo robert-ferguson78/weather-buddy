@@ -1,0 +1,13 @@
+{{> menu active="station-data"}}
+<!-- add in the Graphana dashboard with iframe -->
+<script>
+  window.addEventListener('message', function(event) {
+    if (event.data.iframeHeight) {
+      console.log('Received height:', event.data.iframeHeight);
+      document.querySelector('iframe').style.height = event.data.iframeHeight + 'px';
+      event.source.postMessage('height received', '*'); // Send confirmation message back to iframe
+    }
+  });
+</script>
+
+<iframe src="http://192.168.68.115:3000/playlists/play/ed7ff5f6-508a-4924-85cf-8748963c8242?kiosk" scrolling="no" width="100%" frameborder="0"></iframe>

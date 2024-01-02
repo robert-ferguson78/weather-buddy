@@ -2,10 +2,10 @@
 <form action="/station/{{station._id}}/addreading" method="POST">
   <label class="label">Enter Reading Details:</label>
   <div class="columns">
-      <div class="field column">
-        <label class="label">Code</label>
+            <div class="field column">
+            <label class="label">Code</label>
                 <div class="control">
-                    <div class="select">
+                    <div class="select is-fullwidth">
                         <select type="text" name="code" required>
                             <option value=""> Select code</option>
                             <option value="804">804 (overcast clouds: 85-100%)</option>
@@ -66,34 +66,38 @@
                         </select>
                     </div>
                 </div>
-      </div>
-      <div class="field column">
-        <label class="label">Temperature</label>
+            </div>
+            <div class="field column">
+            <label class="label">Temperature</label>
                 <div class="control">
                     <input class="input" placeholder="00.0 C" type="number" step=".01" name="temperature" required>
                 </div>
-      </div>
-      <div class="field column">
-        <label class="label">Wind Speed</label>
+            </div>
+        </div>
+  <div class="columns">
+            <div class="field column">
+            <label class="label">Wind Speed</label>
                 <div class="control">
                     <input class="input" placeholder="00.00 kMh" type="number" step=".01" min="1" max="117"
-                           name="windSpeed" required>
+                            name="windSpeed" required>
                 </div>
-      </div>
-      <div class="field column">
+            </div>
+            <div class="field column">
                 <label class="label">Wind Direction</label>
                 <div class="control">
                     <input class="input" placeholder="00.00 dg" type="number" step=".01" min="0" max="360"
-                           name="windDirection" required>
+                            name="windDirection" required>
                 </div>
             </div>
-      <div class="field column">
-        <label class="label">Pressure</label>
+        </div>
+  <div class="columns">
+            <div class="field column">
+            <label class="label">Pressure</label>
                 <div class="control">
                     <input class="input" placeholder="00.00 hPa" type="number" name="pressure" required>
                 </div>
-      </div>
-      <div class="field column m-auto">
+            </div>
+            <div class="field column m-auto">
                 <div class="control">
                     <button class="button is-primary is-large">
                         Submit Readings
