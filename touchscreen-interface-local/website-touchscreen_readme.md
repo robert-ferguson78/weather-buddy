@@ -1,6 +1,5 @@
 ## Table of Contents
 
-- [Website Build](#website-build)
 - [Installation](#installation)
 - [Brief Description](#brief-description-of-assignment)
 - [Features Of Website](#features-that-have-been-implemented)
@@ -8,25 +7,42 @@
 
 ---
 
-# Website build
-
-The touchscreen version of site is to display data that is stored locally in InfluxDB which is not sent to the cloud (Mongo DB Atlas), the design is slight;y chnaged from the mao website build as it is dedicated for a smaller screen with touch interface. I had initially used a touch screen but the input without keyboard proved to be an issue so i used a tablet instead as it had the ui interface for keyboard and user input
-
-Touchscreen device for local webiste interaction
-![touchscreen screenshot](../image-assets/readme-images/touchscreen.jpeg)
-![touchscreen screenshot 2](../image-assets/readme-images/touchscreen2.jpeg)
-
-Tablet device for local webiste interaction (i went ewith this option in the end)
-![touchscreen screenshot](../image-assets/readme-images/tablet.jpeg)
-
-
->> [Back to Top](#Table-of-Contents)
-
----
-
 ## Installation
 
-Instructions on how to install and set up the project.
+- Install Node from this link https://nodejs.org/en (follow instructions to install)
+- Install Visual Studio for development of Model View Controller https://code.visualstudio.com/
+- Express.js and Handlebars.js:
+    - Open a terminal or command prompt.
+    Navigate to your project directory.
+    - Run the following commands to install Express.js and Handlebars.js using npm:npm install express express-handlebars
+- Create Your Project File structure for Model View Controller
+- set up server.js file (extract below of server.js file)
+```
+import 'dotenv/config';
+import express from "express";
+import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
+import fileUpload from "express-fileupload";
+import { engine } from "express-handlebars";
+import { router } from "./routes.js";
+import { handlebarsHelpers } from "./helpers/handlebars-helpers.js";
+
+const app = express();
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static("public"));
+app.use(fileUpload());
+app.engine(".hbs", engine({ extname: ".hbs", helpers: handlebarsHelpers }));
+app.set("view engine", ".hbs");
+app.set("views", "./views");
+app.use("/", router);
+
+const listener = app.listen(process.env.PORT || 4000, function () {
+  console.log(`Todolist started on http://localhost:${listener.address().port}`);
+});
+```
+- Run command in terminal in project folder: npm start
+- Application will run on: http://localhost:4000/
 
 
 >> [Back to Top](#Table-of-Contents)
@@ -35,8 +51,14 @@ Instructions on how to install and set up the project.
 
 # Brief description of assignment
 
-Readings and stations are displayed to user in an attractive interface showing the member there historical readings and Converted reading data with stats based on reading data, trend charts and interactove maps have also been added to this project. This site is hosted on a raspberry pi on a local network.
+Readings and stations are displayed to user in an attractive interface showing the member there historical readings and Converted reading data with stats based on reading data, trend charts and interactove maps have also been added to this project. This site is hosted on a raspberry pi on a local network. This local network site displays the Grafana dashboard in an iframe from the influxdb database with comparison of outside and inside readings. I had initially used a touch screen but the input without keyboard proved to be an issue so i used a tablet instead as it had the ui interface for keyboard and user input
 
+Touchscreen device for local webiste interaction
+![touchscreen screenshot](../image-assets/readme-images/touchscreen.jpeg)
+![touchscreen screenshot 2](../image-assets/readme-images/touchscreen2.jpeg)
+
+Tablet device for local webiste interaction (i went ewith this option in the end)
+![touchscreen screenshot](../image-assets/readme-images/tablet.jpeg)
 
 >> [Back to Top](#Table-of-Contents)
 

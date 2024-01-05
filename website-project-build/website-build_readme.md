@@ -1,20 +1,3 @@
-# Website build
-
-MQTT (Message Queuing Telemetry Transport) is a lightweight, publish-subscribe network protocol that transports messages between devices. It is designed for high-latency or unreliable networks.
-
-In MQTT, a central broker handles all messages. Devices, or "clients", connect to this broker and subscribe to topics they are interested in. When a message is published to a topic, the broker forwards the message to all clients who have subscribed to that topic.
-
-MQTT supports three levels of Quality of Service (QoS) for message delivery:
-
-"At most once", where messages are delivered according to the best efforts of the operating environment. Message loss can occur.
-"At least once", where messages are assured to arrive but duplicates can occur.
-"Exactly once", where message are assured to arrive exactly once. This is the safest but slowest option.
-In your project, MQTT could be used for real-time data transmission from various sensors or devices to a central server or between components of your application.
-
->> [Back to Top](#Table-of-Contents)
-
----
-
 ## Table of Contents
 
 - [Installation](#installation)
@@ -26,7 +9,40 @@ In your project, MQTT could be used for real-time data transmission from various
 
 ## Installation
 
-Instructions on how to install and set up the project.
+- Install Node from this link https://nodejs.org/en (follow instructions to install)
+- Install Visual Studio for development of Model View Controller https://code.visualstudio.com/
+- Express.js and Handlebars.js:
+    - Open a terminal or command prompt.
+    Navigate to your project directory.
+    - Run the following commands to install Express.js and Handlebars.js using npm:npm install express express-handlebars
+- Create Your Project File structure for Model View Controller
+- set up server.js file (extract below of server.js file)
+```
+import 'dotenv/config';
+import express from "express";
+import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
+import fileUpload from "express-fileupload";
+import { engine } from "express-handlebars";
+import { router } from "./routes.js";
+import { handlebarsHelpers } from "./helpers/handlebars-helpers.js";
+
+const app = express();
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static("public"));
+app.use(fileUpload());
+app.engine(".hbs", engine({ extname: ".hbs", helpers: handlebarsHelpers }));
+app.set("view engine", ".hbs");
+app.set("views", "./views");
+app.use("/", router);
+
+const listener = app.listen(process.env.PORT || 4000, function () {
+  console.log(`Todolist started on http://localhost:${listener.address().port}`);
+});
+```
+- Run command in terminal in project folder: npm start
+- Application will run on: http://localhost:4000/
 
 >> [Back to Top](#Table-of-Contents)
 
@@ -34,7 +50,7 @@ Instructions on how to install and set up the project.
 
 # Brief description of assignment
 
-Readings and stations are displayed to user in an attractive interface showing the member there historical readings and Converted reading data with stats based on reading data, trend charts and interactove maps have also been added to this project. This site is hosted on Glitch hosting enviornment at this URL: https://weather-buddy.glitch.me/
+Readings and stations are displayed to user in an attractive interface showing the member there historical readings and Converted reading data with stats based on reading data, trend charts and interactove maps have also been added to this project. This site is hosted on Glitch hosting enviornment at this URL: https://weather-buddy.glitch.me/. The website allows for automated readings sent from the local network python script to manual and automated readings from OpenWeatherMap API
 
 >> [Back to Top](#Table-of-Contents)
 
