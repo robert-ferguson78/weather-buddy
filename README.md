@@ -6,10 +6,22 @@ Weather Buddy - application IoT project
 - Youtube Demo video: https://youtu.be/xuRn9_aWRm4?feature=shared
 - GitHub Repo link: https://github.com/robert-ferguson78/weather-buddy
 
+# Table of Contents
+
+- [Project Description](#Project-Description)
+- [Tools-Technologies and Equipment](#Tools-Technologies-and-Equipment)
+- [Teck stack proposed](#Teck-stack-proposed)
+- [Folder Structure](#Folder-Structure)
+- [Physical Hardware for project](#Physical-Hardware-for-project)
+
 ## Project Description
 This project will connect weather location data, forecast and real-world sensor data to give recommendations of tasks based on historical and real atmospheric data, users will be alerted with actionable tasks based on data processed.
 
-## Tools, Technologies, and Equipment (Subject to change)
+>> [Back to Top](#Table-of-Contents)
+
+---
+
+## Tools-Technologies and Equipment
 - For website and user touch interface, I plan to use modified versions of site using:
     - Node.js
     - Express.js
@@ -23,7 +35,11 @@ This project will connect weather location data, forecast and real-world sensor 
 - TouchScreen for interaction with local version of site (seperate from hosted cloud site)
 - Sense hat for led colour display
 
-## Teck stack proposed but (Subject to change) is
+>> [Back to Top](#Table-of-Contents)
+
+---
+
+## Teck stack proposed
 - HTML & CSS (Bulma plus custom)
 - JavaScript 
     - Node.js
@@ -38,6 +54,10 @@ This project will connect weather location data, forecast and real-world sensor 
 - Node-Red (automate data entry from MQTT broker)
 - Grafana (display data in visual dashboard)
 - Portainer (provides a nice interace to manage docker containers)
+
+>> [Back to Top](#Table-of-Contents)
+
+---
 
 ## Folder Structure: 
 
@@ -68,6 +88,10 @@ This folder is for my python script that auto runs in the background on a raspbe
 ### rabbit-holes
 This folder holds approaches that i explored but did not work and ultimetly cost me time hence the name "rabbit-holes", but it did provide knowledge in what did not and also what did work that ultimetly came down to decisions of suitbility of integration or use another flexible approach
 
+>> [Back to Top](#Table-of-Contents)
+
+---
+
 ## Physical Hardware for project
 
 Weather station and weather Board
@@ -90,3 +114,7 @@ Raspberry Pi 5 With Sense hat (Weather Colour Buddy Box) & Rapberry Pi 4's
 ![touchscreen screenshot 2](../image-assets/readme-images/colour-body-2.jpeg)
 
 ![touchscreen screenshot 2](../image-assets/readme-images/colour-body-3.jpeg)
+
+>> [Back to Top](#Table-of-Contents)
+
+---
