@@ -65,6 +65,6 @@ MQTT is used in this project to send data from sensors in Enviro weather and ind
 ## Sreenshot of MQTT Broker data from MQTT Explorer App
 
 ### MQTT Explorer app showing MQTT Feeds
-![Grafana Admin Dashboard](../image-assets/readme-images/mqtt-explorer.png)
+![MQTT Broker screenshot](../image-assets/readme-images/mqtt-explorer.png)
 
 >> [Back to Top](#Table-of-Contents)

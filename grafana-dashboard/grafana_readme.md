@@ -60,7 +60,7 @@ Command & logging (settings)
 
 ## Usage
 
-Grafana is used in this project assignment to visualise data that comes from the infuxdb, Emoji's are used in the grafana titel's and also data from Influxdb for visual icons, for example the emoji's ⬇ ↘ ⬆ ↗ ➞ ↖ ↙ ← are used to visually show wind direction in the dashboard
+Grafana is used in this project assignment to visualise data that comes from the infuxdb, Emoji's are used in the grafana title's and also data from Influxdb for visual icons, for example the emoji's ⬇ ↘ ⬆ ↗ ➞ ↖ ↙ ← are used to visually show wind direction in the dashboard
 
 Emoji's were sourced from below link (seranc for emoji's) 
 https://emojidb.org/scale-emojis?

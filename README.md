@@ -1,9 +1,10 @@
 # weather-buddy
 Weather Buddy - application IoT project
 
-Name: Robert Ferguson
-Student ID: 20104121
-GitHub Repo link: https://github.com/robert-ferguson78/weather-buddy
+- Name: Robert Ferguson
+- Student ID: 20104121
+- Youtube Demo video: https://youtu.be/xuRn9_aWRm4?feature=shared
+- GitHub Repo link: https://github.com/robert-ferguson78/weather-buddy
 
 ## Project Description
 This project will connect weather location data, forecast and real-world sensor data to give recommendations of tasks based on historical and real atmospheric data, users will be alerted with actionable tasks based on data processed.
