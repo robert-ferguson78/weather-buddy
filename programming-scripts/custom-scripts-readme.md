@@ -10,6 +10,11 @@
 - It defines a function job that connects to MongoDB, resets a flag, connects to the MQTT broker, subscribes to an MQTT topic, starts the MQTT loop, sleeps for a while, and then stops the MQTT loop. This function is scheduled to run at a specific time every day.
 - It starts a loop that checks for scheduled jobs and sleeps for a while to reduce resource usage.
 
+Start script and run in the background even in console is closed
+```
+nohup python readings_app.py &
+```
+
 ## Sense-hat-script.py file code breakdown (high level summary)
 
 - It imports necessary libraries and loads environment variables from a .env file.
@@ -22,3 +27,22 @@
 - It displays this color on the Sense HAT's LED matrix.
 - It then sleeps for a specified amount of time before the next reading.
 - If a KeyboardInterrupt (usually Ctrl+C) is detected, it stops the MQTT client's loop. This also happens if the script exits for any other reason.
+
+To get this to run on the Raspberry Pi 5 i had to create a python virtaul enviorment as i had issues installing python packages globally and read up that it is safer to work with a virtual enviorment so there are no conflicts bwteeen projects as they are created, started and stoped as needed (i also had overheating issue swith sense hat connected to pi so i coudl only run this script for limited time).
+
+Command to create Python virtual env called mysensehat
+```
+python3 -m venv mysensehat
+```
+command to Run the virtual Python enviornment
+```
+source mysensehat/bin/activate
+```
+Command to run in the background even in console is closed
+```
+nohup python mysensehat/readings.py &
+```
+Command to stop virtual Enviorment
+```
+deactivate
+```
