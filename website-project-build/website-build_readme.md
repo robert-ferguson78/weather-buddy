@@ -11,6 +11,10 @@ MQTT supports three levels of Quality of Service (QoS) for message delivery:
 "Exactly once", where message are assured to arrive exactly once. This is the safest but slowest option.
 In your project, MQTT could be used for real-time data transmission from various sensors or devices to a central server or between components of your application.
 
+>> [Back to Top](#Table-of-Contents)
+
+---
+
 ## Table of Contents
 
 - [Installation](#installation)
@@ -18,13 +22,23 @@ In your project, MQTT could be used for real-time data transmission from various
 - [Features Of Website](#features-that-have-been-implemented)
 - [Technology Used](#technology-used)
 
+---
+
 ## Installation
 
 Instructions on how to install and set up the project.
 
+>> [Back to Top](#Table-of-Contents)
+
+---
+
 # Brief description of assignment
 
 Readings and stations are displayed to user in an attractive interface showing the member there historical readings and Converted reading data with stats based on reading data, trend charts and interactove maps have also been added to this project. This site is hosted on Glitch hosting enviornment at this URL: https://weather-buddy.glitch.me/
+
+>> [Back to Top](#Table-of-Contents)
+
+---
 
 # Features that have been implemented
 
@@ -106,6 +120,10 @@ Readings and stations are displayed to user in an attractive interface showing t
 36. Handlebar helpers are used to display reading data based on number of readings attached to station
 37. WeatherTop JS project assignment is fully responsive on mobile devices.
 
+>> [Back to Top](#Table-of-Contents)
+
+---
+
 # Technology Used
 
 **Javascript** (Used in site for models and form fields)
@@ -125,3 +143,5 @@ Technology Description: Bulma is a free, open source CSS framework based on Flex
 
 **Mongo Atlas** (used to save data for site)
 Technology Description: MongoDB Atlas is a fully-managed cloud database service provided by MongoDB. It automates the deployment, scaling, and operations of MongoDB databases in the cloud.
+
+>> [Back to Top](#Table-of-Contents)

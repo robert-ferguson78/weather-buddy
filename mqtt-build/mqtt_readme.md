@@ -70,6 +70,9 @@ MQTT is used in this project to send data from sensors in Enviro weather and ind
 
 >> [Back to Top](#Table-of-Contents)
 
+
+---
+
 ## Resources
 
 ### Youtube link for MQTT installing locally

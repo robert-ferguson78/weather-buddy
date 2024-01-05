@@ -1,30 +1,48 @@
-# Website build
-
-MQTT (Message Queuing Telemetry Transport) is a lightweight, publish-subscribe network protocol that transports messages between devices. It is designed for high-latency or unreliable networks.
-
-In MQTT, a central broker handles all messages. Devices, or "clients", connect to this broker and subscribe to topics they are interested in. When a message is published to a topic, the broker forwards the message to all clients who have subscribed to that topic.
-
-MQTT supports three levels of Quality of Service (QoS) for message delivery:
-
-"At most once", where messages are delivered according to the best efforts of the operating environment. Message loss can occur.
-"At least once", where messages are assured to arrive but duplicates can occur.
-"Exactly once", where message are assured to arrive exactly once. This is the safest but slowest option.
-In your project, MQTT could be used for real-time data transmission from various sensors or devices to a central server or between components of your application.
-
 ## Table of Contents
 
+- [Website Build](#website-build)
 - [Installation](#installation)
 - [Brief Description](#brief-description-of-assignment)
 - [Features Of Website](#features-that-have-been-implemented)
 - [Technology Used](#technology-used)
 
+---
+
+# Website build
+
+The touchscreen version of site is to display data that is stored locally in InfluxDB which is not sent to the cloud (Mongo DB Atlas), the design is slight;y chnaged from the mao website build as it is dedicated for a smaller screen with touch interface. I had initially used a touch screen but the input without keyboard proved to be an issue so i used a tablet instead as it had the ui interface for keyboard and user input
+
+Touchscreen device for local webiste interaction
+![touchscreen screenshot](../image-assets/readme-images/touchscreen.jpg)
+![touchscreen screenshot 2](../image-assets/readme-images/touchscreen2.jpg)
+
+Tablet device for local webiste interaction (i went ewith this option in the end)
+![touchscreen screenshot](../image-assets/readme-images/tablet.jpg)
+
+>> [Back to Top](#Table-of-Contents)
+
+
+>> [Back to Top](#Table-of-Contents)
+
+---
+
 ## Installation
 
 Instructions on how to install and set up the project.
 
+
+>> [Back to Top](#Table-of-Contents)
+
+---
+
 # Brief description of assignment
 
-Readings and stations are displayed to user in an attractive interface showing the member there historical readings and Converted reading data with stats based on reading data, trend charts and interactove maps have also been added to this project. This site is hosted on Glitch hosting enviornment at this URL: https://weather-buddy.glitch.me/
+Readings and stations are displayed to user in an attractive interface showing the member there historical readings and Converted reading data with stats based on reading data, trend charts and interactove maps have also been added to this project. This site is hosted on a raspberry pi on a local network.
+
+
+>> [Back to Top](#Table-of-Contents)
+
+---
 
 # Features that have been implemented
 
@@ -105,6 +123,12 @@ Readings and stations are displayed to user in an attractive interface showing t
 35. Members or non members cannot enter, delete or modify station/reading/profile data by url’s
 36. Handlebar helpers are used to display reading data based on number of readings attached to station
 37. WeatherTop JS project assignment is fully responsive on mobile devices.
+38. Grafana Dashboard added to display historical data from InfluxDB
+
+
+>> [Back to Top](#Table-of-Contents)
+
+---
 
 # Technology Used
 
@@ -125,3 +149,11 @@ Technology Description: Bulma is a free, open source CSS framework based on Flex
 
 **Mongo Atlas** (used to save data for site)
 Technology Description: MongoDB Atlas is a fully-managed cloud database service provided by MongoDB. It automates the deployment, scaling, and operations of MongoDB databases in the cloud.
+
+**Grafana** (used to display data from InfluxDB)
+Technology Description: Grafana is an open-source analytics and monitoring platform that allows users to visualize and understand their data through customizable and interactive dashboards. 
+
+
+>> [Back to Top](#Table-of-Contents)
+
+---
