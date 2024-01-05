@@ -95,25 +95,25 @@ This folder holds approaches that i explored but did not work and ultimetly cost
 ## Physical Hardware for project
 
 Weather station and weather Board
-![touchscreen screenshot](../image-assets/readme-images/weather-station1.jpeg)
+![touchscreen screenshot](/image-assets/readme-images/weather-station1.jpeg)
 
-![touchscreen screenshot 2](../image-assets/readme-images/weather-station2.jpeg)
+![touchscreen screenshot 2](/image-assets/readme-images/weather-station2.jpeg)
 
 Weather station and weather Board
-![touchscreen screenshot](../image-assets/readme-images/inside-sensor-board.jpeg)
+![touchscreen screenshot](/image-assets/readme-images/inside-sensor-board.jpeg)
 
 Raspberry Pi 5 With Sense hat (Weather Colour Buddy Box) & Rapberry Pi 4's
-![touchscreen screenshot](../image-assets/readme-images/raspberry-pi-5-1.jpeg)
+![touchscreen screenshot](/image-assets/readme-images/raspberry-pi-5-1.jpeg)
 
-![touchscreen screenshot 2](../image-assets/readme-images/raspberry-pi-5-2.jpeg)
+![touchscreen screenshot 2](/image-assets/readme-images/raspberry-pi-5-2.jpeg)
 
-![touchscreen screenshot](../image-assets/readme-images/raspberry-pi-4-2.jpeg)
+![touchscreen screenshot](/image-assets/readme-images/raspberry-pi-4-2.jpeg)
 
-![touchscreen screenshot 2](../image-assets/readme-images/colour-body-1.jpeg)
+![touchscreen screenshot 2](/image-assets/readme-images/colour-body-1.jpeg)
 
-![touchscreen screenshot 2](../image-assets/readme-images/colour-body-2.jpeg)
+![touchscreen screenshot 2](/image-assets/readme-images/colour-body-2.jpeg)
 
-![touchscreen screenshot 2](../image-assets/readme-images/colour-body-3.jpeg)
+![touchscreen screenshot 2](/image-assets/readme-images/colour-body-3.jpeg)
 
 >> [Back to Top](#Table-of-Contents)
 
