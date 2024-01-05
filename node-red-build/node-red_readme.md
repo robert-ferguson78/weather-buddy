@@ -12,6 +12,7 @@ Node-RED provides a visual interface for programming and is built on Node.js, ta
 - [MQTT Brooker set up](#(MQTT-in)-node-used-to-connect-the-MQTT-broker-feed-into-Node-Red)
 - [MQTT Readings split up](#MQTT-readings-split-up)
 - [InfluxDB node set up](#InfluxDb-node-set-up)
+- [Convert wind direction to letter function](#Convert-wind-direction-to-letter-function)
 - [Node-Red Debug](#node-red-debug)
 
 ## Installation
@@ -194,6 +195,40 @@ InfluxDB node set up for Wind letter entry
 
 >> [Back to Top](#Table-of-Contents)
 
+
+## Convert wind direction to letter function
+
+(Function) node used to convert MQTT split redaing for Wind Direction to a letter to be saved in influxDb node (also emoji arrows are saved based on value with letters)
+
+```
+    // var degree = msg.payload; // assuming the MQTT message payload is the wind direction in degrees
+    // var val = Math.floor((degree / 22.5) + 0.5);
+    // var arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+    // msg.payload = arr[(val % 16)];
+    // return msg;
+
+    var angle = msg.payload; // assuming the MQTT message payload is the wind direction in degrees
+    if (angle === 45) {
+        msg.payload = "North-East ↗";
+    } else if (angle === 90) {
+        msg.payload = "East →";
+    } else if (angle === 135) {
+        msg.payload = "South-East ↘";
+    } else if (angle === 180) {
+        msg.payload = "South ↓";
+    } else if (angle === 225) {
+        msg.payload = "South-West ↙";
+    } else if (angle === 270) {
+        msg.payload = "West ←";
+    } else if (angle === 315) {
+        msg.payload = "North-West ↖";
+    } else {
+        msg.payload = "North ↑";
+    }
+    return msg;
+```
+
+>> [Back to Top](#Table-of-Contents)
 
 ## Node-Red debug
 (debug) node is used to output messaging and errors from each flow to check expected v's received data value and format
