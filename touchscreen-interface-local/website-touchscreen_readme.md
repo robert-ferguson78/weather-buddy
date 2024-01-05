@@ -13,13 +13,11 @@
 The touchscreen version of site is to display data that is stored locally in InfluxDB which is not sent to the cloud (Mongo DB Atlas), the design is slight;y chnaged from the mao website build as it is dedicated for a smaller screen with touch interface. I had initially used a touch screen but the input without keyboard proved to be an issue so i used a tablet instead as it had the ui interface for keyboard and user input
 
 Touchscreen device for local webiste interaction
-![touchscreen screenshot](../image-assets/readme-images/touchscreen.jpg)
-![touchscreen screenshot 2](../image-assets/readme-images/touchscreen2.jpg)
+![touchscreen screenshot](../image-assets/readme-images/touchscreen.jpeg)
+![touchscreen screenshot 2](../image-assets/readme-images/touchscreen2.jpeg)
 
 Tablet device for local webiste interaction (i went ewith this option in the end)
-![touchscreen screenshot](../image-assets/readme-images/tablet.jpg)
-
->> [Back to Top](#Table-of-Contents)
+![touchscreen screenshot](../image-assets/readme-images/tablet.jpeg)
 
 
 >> [Back to Top](#Table-of-Contents)
