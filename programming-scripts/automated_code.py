@@ -40,6 +40,34 @@ client = InfluxDBClient(url="http://192.168.68.115:8086", token=token)
 # IFTTT credentials
 ifttt_key = os.getenv('IFFTTT_KEY')
 ifttt_event = os.getenv('IFTTT_EVENT')
+ifttt_event_station_down = os.getenv('IFTTT_EVENT_DOWN_STATION')
+
+#------------------------------------------------------------------#
+#---------- outside weather station down alert connection ---------#
+#------------------------------------------------------------------#
+
+def check_influxdb_entries():
+    # Test notifications 4 hours and 2 hours from the current time when station went down
+    #query = f'from(bucket: "{bucket}") |> range(start: -4h, stop: -2h)'
+    
+    # look for reading entries for previous 10 min (entries are evry 3 min)
+    query = f'from(bucket: "{bucket}") |> range(start: -10m)'
+    result = client.query_api().query(query, org=org)
+    
+    # If there are no new entries, send an alert using IFTTT
+    if not result:
+        requests.post(f"https://maker.ifttt.com/trigger/{ifttt_event_station_down}/with/key/{ifttt_key}", 
+                      data={"value1": "No new entries in InfluxDB in the last 10 minutes"})
+        #print("WEATHER DOWN FIRED")
+    #else:
+        #print("IFTTT event did not fire")
+        
+
+# test if notification works
+#schedule.every(1).minutes.do(check_influxdb_entries) 
+
+# Schedule to run every hour
+schedule.every().hour.do(check_influxdb_entries)
 
 #------------------------------------------------------------------#
 #-------------------- checks MongoDB connection -------------------#
@@ -50,7 +78,6 @@ def get_db():
             client = MongoClient(mongo_uri)
             db = client.WeatherBuddy
             # The ismaster command is cheap and does not require auth.
-            # This is a quick way to check if DB is up and running
             db.command('ismaster')
             return db
         except errors.ServerSelectionTimeoutError as err:
