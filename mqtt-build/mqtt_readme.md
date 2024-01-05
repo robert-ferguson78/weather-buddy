@@ -4,6 +4,7 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [MQTT Screenshot from MQTT Explorer app](#Sreenshot-of-MQTT-Broker-data-from-MQTT-Explorer-App)
+- [Resources](#resources)
 
 ---
 
@@ -68,3 +69,9 @@ MQTT is used in this project to send data from sensors in Enviro weather and ind
 ![MQTT Broker screenshot](../image-assets/readme-images/mqtt-explorer.png)
 
 >> [Back to Top](#Table-of-Contents)
+
+## Resources
+
+### Youtube link for MQTT installing locally
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/juSoczXtlxA?si=LmZcXDRyeYyFgSoK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
