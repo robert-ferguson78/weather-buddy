@@ -65,6 +65,8 @@ This project will connect weather location data, forecast and real-world sensor 
 ### InlfluxDB
 This folder is for my Docker container that runs the InfluxDB to store wetaher and indoor readings for historical data processing and supplying chart information, this is a time based DB so is perfcet for sensor data this assignment utilises.
 
+>> [Read me file for InfluxDB](programming-scripts/custom-scripts-readme.md)
+
 ### Grafana-dashboard
 This folder is for my Docker container that runs the Grafana dashboard that takes data from the influxDB and renders it visually for end user in localhosted application only (touchscreen implementation).
 
