@@ -244,6 +244,9 @@ InfluxDB node set up for Wind letter entry
 
 - Special mention to Kieron Garvey for showing me Node-Red (pointed me in this direction)
 - https://nodered.org/docs/creating-nodes/
+Node-red connect to Mongo atlas
+- https://www.youtube.com/watch?v=RoNucR0fdj0
+- https://www.youtube.com/watch?v=UrjZ3qn44uE
 
 ---
 
