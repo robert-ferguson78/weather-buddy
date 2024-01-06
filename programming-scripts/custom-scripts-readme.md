@@ -44,7 +44,7 @@ nohup python readings_app.py &
 To get this to run on the Raspberry Pi 5 i had to create a python virtaul enviorment as i had issues installing python packages globally and read up that it is safer to work with a virtual enviorment so there are no conflicts bwteeen projects as they are created, started and stoped as needed (i also had overheating issue swith sense hat connected to pi so i coudl only run this script for limited time).
 
 Commands to install Pyhton modules needed for script
-````
+```
 pip install influxdb-client
 pip install python-dotenv
 pip install sense-hat
