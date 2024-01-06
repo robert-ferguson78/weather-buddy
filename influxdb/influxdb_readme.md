@@ -6,7 +6,6 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Dasboard Screenshots](#Sreenshots-of-Infuxdb-admin-dashboard-and-webiste-iframe-dashboard)
-- [Reources](#resources)
 
 ---
 
@@ -81,21 +80,6 @@ Inlfuxdb is used in this project assingment to store reading data by date for th
 
 ### Main Influx Admin Dashboard with all data selected for inside readings (mouse hovered over chart for pop out data overlay)
 ![Grafana Admin Dashboard](../image-assets/readme-images/inside-influxdb-readings.png)
-
->> [Back to Top](#Table-of-Contents)
-
----
-
-## Resources
-
-- https://grafana.com/docs/grafana/latest/datasources/influxdb/
-- https://grafana.com/docs/grafana/latest/panels-visualizations/
-- https://grafana.com/docs/grafana/latest/dashboards/
-- https://community.grafana.com/t/-dashboard-using-iframe-not-opening-in-web-broweser-window/19304
-- https://community.grafana.com/t/iframe-a-panel/67312
-- https://www.itpanther.com/embedding-grafana-in-iframe/
-- https://grafana.com/blog/2023/10/10/how-to-embed-grafana-dashboards-into-web-applications/
-- https://stackoverflow.com/questions/65847384/embedding-a-website-in-a-grafana-dashboard
 
 >> [Back to Top](#Table-of-Contents)
 
