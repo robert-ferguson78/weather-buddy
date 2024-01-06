@@ -1,3 +1,5 @@
+>> [Back to Main Project README.MD file](../README.md)
+
 ## Table of Contents
 
 - [Installation](#installation)
@@ -177,3 +179,5 @@ Technology Description: Grafana is an open-source analytics and monitoring platf
 >> [Back to Top](#Table-of-Contents)
 
 ---
+
+>> [Back to Main Project README.MD file](../README.md)
