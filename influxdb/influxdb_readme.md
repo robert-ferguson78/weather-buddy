@@ -1,3 +1,5 @@
+>> [Back to Main Project README.MD file](../README.md)
+
 # Table of Contents
 
 - [Container Description](#Container-for-influxdb)
@@ -80,3 +82,7 @@ Inlfuxdb is used in this project assingment to store reading data by date for th
 ![Grafana Admin Dashboard](../image-assets/readme-images/inside-influxdb-readings.png)
 
 >> [Back to Top](#Table-of-Contents)
+
+---
+
+>> [Back to Main Project README.MD file](../README.md)

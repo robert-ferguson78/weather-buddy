@@ -1,3 +1,5 @@
+>> [Back to Main Project README.MD file](../README.md)
+
 # Table of Contents
 
 - [Installation](#installation)
@@ -220,3 +222,7 @@ This requires 2 queries for outsode and inside influxdb data buckets
 ![Grafana HPA pressure panel](../image-assets/readme-images/pressure-hpa.png)
 
 >> [Back to Top](#Table-of-Contents)
+
+---
+
+>> [Back to Main Project README.MD file](../README.md)
