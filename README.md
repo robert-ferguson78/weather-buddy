@@ -11,6 +11,7 @@ Weather Buddy - application IoT project
 - [Project Description](#Project-Description)
 - [Tools-Technologies and Equipment](#Tools-Technologies-and-Equipment)
 - [Teck stack proposed](#Teck-stack-proposed)
+- [Project Architecture](#Project-Architecture)
 - [Folder Structure](#Folder-Structure)
 - [Physical Hardware for project](#Physical-Hardware-for-project)
 - [Website Tutorials](#Website-Tutorials)
@@ -59,6 +60,10 @@ This project will connect weather location data, forecast and real-world sensor 
 >> [Back to Top](#Table-of-Contents)
 
 ---
+
+## Project Architecture
+
+![Project Architecture](/image-assets/readme-images/Project-Architecture.jpg)
 
 ## Folder Structure: 
 
