@@ -9,7 +9,19 @@ Portainer.io is an open-source tool for managing containerized applications. It 
 
 ## Installation
 
-Instructions on how to install and set up the project.
+Install docker om Raspberry Pi
+```
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+```
+Install Portainer
+```
+docker volume create portainer_data
+docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
+```
+Access to portainer is with Raspberry Pi IP followed by port :9000 in my case it was
+http://192.168.68.115:9000 and http://192.168.68.103:9000 as i instellad portainer on 2 raspberry pi's
+
 
 ## Usage
 
