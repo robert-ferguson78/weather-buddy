@@ -6,6 +6,7 @@
 - [Usage](#usage)
 - [Dasboard Screenshots](#Sreenshots-of-Grafana-admin-dashboard-and-webiste-iframe-dashboard)
 - [InfluxDB queries for dashboard panels](#InfluxDB-queries-for-dashboard-panels)
+- [Reources](#resources)
 
 ---
 
@@ -220,6 +221,21 @@ This requires 2 queries for outsode and inside influxdb data buckets
     |> map(fn: (r) => ({ r with _field: "Inside hpa" }))
     ```
 ![Grafana HPA pressure panel](../image-assets/readme-images/pressure-hpa.png)
+
+>> [Back to Top](#Table-of-Contents)
+
+---
+
+## Resources
+
+- https://grafana.com/docs/grafana/latest/datasources/influxdb/
+- https://grafana.com/docs/grafana/latest/panels-visualizations/
+- https://grafana.com/docs/grafana/latest/dashboards/
+- https://community.grafana.com/t/-dashboard-using-iframe-not-opening-in-web-broweser-window/19304
+- https://community.grafana.com/t/iframe-a-panel/67312
+- https://www.itpanther.com/embedding-grafana-in-iframe/
+- https://grafana.com/blog/2023/10/10/how-to-embed-grafana-dashboards-into-web-applications/
+- https://stackoverflow.com/questions/65847384/embedding-a-website-in-a-grafana-dashboard
 
 >> [Back to Top](#Table-of-Contents)
 
