@@ -65,31 +65,47 @@ This project will connect weather location data, forecast and real-world sensor 
 ### InlfluxDB
 This folder is for my Docker container that runs the InfluxDB to store wetaher and indoor readings for historical data processing and supplying chart information, this is a time based DB so is perfcet for sensor data this assignment utilises.
 
->> [Read me file for InfluxDB](programming-scripts/custom-scripts-readme.md)
+>> [Read me file for InfluxDB](influxdb/influxdb_readme.md)
 
 ### Grafana-dashboard
 This folder is for my Docker container that runs the Grafana dashboard that takes data from the influxDB and renders it visually for end user in localhosted application only (touchscreen implementation).
 
+>> [Read me file for Grafana-dashboard](grafana-dashboard/grafana_readme.md)
+
 ### MQTT-build
 This folder is for my Docker container that runs the MQTT broker locally on local network which goves the ability to choose what data to push to cloud services while keeping data offline for local access.
+
+>> [Read me file for MQTT-build](mqtt-build/mqtt_readme.md)
 
 ### Node-Red
 This folder is for my Docker container that runs Node-Red which i used to take the local MQTT broker data, process data with javascript functions and then save into local database (influxdb in this instance)
 
+>> [Read me file for Node-Red](node-red-build/node-red_readme.md)
+
 ### Portainer
 This folder is for my Docker container that runs Portianer which is used to manage all the docker containers i use in this project (purly utilised for docker managment on this project)
+
+>> [Read me file for Portainer](portainer/portainer-readme.md)
 
 ### Touchscreen-interface-local
 This folder is for my Docker container that runs a modifed version of the weboste but locally giveing the user the same functionality as the website but with added features of graph dashboards of historical sensor data, also slightly modifed website banner for touchscreen device.
 
+>> [Read me file for Touchscreen-interface-local](touchscreen-interface-local/website-touchscreen_readme.md)
+
 ### Website-project-build
 This folder is for the website that accompanies the Weather-Buddy application which incorporates MongoDb as the storage engine along with user and station/readings data. All user snapshot data is disp,layed on main map but single logged in user data in the user station view (can only edit there own station data nobody elses)
+
+>> [Read me file for Website-project-build](website-project-build/website-build_readme.md)
 
 ### Programming-scripts
 This folder is for my python script that auto runs in the background on a raspberry pi which automates, the process of adding a live data set of weather readings from the weather station together with weather code from OpenWeather API to the MongoDB for the website to display. To trigger IFTTT when certain conditions are meet with custom notifications with passed data variables used in messaging.
 
+>> [Read me file for Programming-scripts](programming-scripts/custom-scripts-readme.md)
+
 ### rabbit-holes
 This folder holds approaches that i explored but did not work and ultimetly cost me time hence the name "rabbit-holes", but it did provide knowledge in what did not and also what did work that ultimetly came down to decisions of suitbility of integration or use another flexible approach
+
+>> [Rabbit-holes Folder](rabbit-holes)
 
 >> [Back to Top](#Table-of-Contents)
 
