@@ -16,6 +16,7 @@ Node-RED provides a visual interface for programming and is built on Node.js, ta
 - [InfluxDB node set up](#InfluxDb-node-set-up)
 - [Convert wind direction to letter function](#Convert-wind-direction-to-letter-function)
 - [Node-Red Debug](#node-red-debug)
+- [Reources](#resources)
 
 ## Installation
 
@@ -236,5 +237,14 @@ InfluxDB node set up for Wind letter entry
 (debug) node is used to output messaging and errors from each flow to check expected v's received data value and format
 
 >> [Back to Top](#Table-of-Contents)
+
+---
+
+## Resources
+
+- Special mention to Kieron Garvey for showing me Node-Red (pointed me in this direction)
+- https://nodered.org/docs/creating-nodes/
+
+---
 
 >> [Back to Main Project README.MD file](../README.md)
