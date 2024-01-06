@@ -1,3 +1,5 @@
+>> [Back to Main Project README.MD file](../README.md)
+
 ## automated_code.py file code breakdown (high level summary)
 
 - It imports necessary libraries and loads environment variables from a .env file.
@@ -65,3 +67,6 @@ Command to stop virtual Enviorment
 ```
 deactivate
 ```
+--- 
+
+>> [Back to Main Project README.MD file](../README.md)
