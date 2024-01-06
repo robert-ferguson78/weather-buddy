@@ -8,6 +8,7 @@ Portainer.io is an open-source tool for managing containerized applications. It 
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Resources](#resources)
 
 ## Installation
 
@@ -31,6 +32,15 @@ http://192.168.68.115:9000 and http://192.168.68.103:9000 as i instellad portain
 ## Usage
 
 Provides a user-friendly interface that allows user to manage Docker containers, images, networks, volumes, and more for project assigment
+
+>> [Back to Top](#Table-of-Contents)
+
+---
+
+## Resources
+
+- https://www.wundertech.net/portainer-raspberry-pi-install-how-to-install-docker-and-portainer/
+- https://www.youtube.com/watch?v=YjszoDGsqfo&t=2s
 
 >> [Back to Top](#Table-of-Contents)
 
