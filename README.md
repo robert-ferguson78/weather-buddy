@@ -73,6 +73,8 @@ This project will connect weather location data, forecast and real-world sensor 
 5. Custom Python scripts automate tasks suck as pushing live wether reading data to Mongo DB Atlas once a day, and also anlyse data in InfluxDB at scheduled times/days on a previous 4 hour period to send or not send data variables to IFTTT for notifications to user (defrost car windows with minimum temperature and maximum humidity readings).
 6. Sense Hat in an enclosure tranlastes temperature into visual feedback for user based on readings read from InfluxDB (add on to Wether Buddy Eco System).
 
+---
+
 ## Folder Structure: 
 
 ### InlfluxDB
