@@ -65,6 +65,14 @@ This project will connect weather location data, forecast and real-world sensor 
 
 ![Project Architecture](/image-assets/readme-images/Project-Architecture.jpg)
 
+1. Custom board sensors for outside and inside with Raspberry Pi Pico'c soldered directly in will pass data to MQTT brooker.
+2. Node-Red takes data from MQTT and breaks up data for entry into InfluxDB.
+3. Grafana reades data form InfluxDB and displays it viusally in dashboardes.
+3. Local hosted website stores and retreives data stored in Mongo DB Atlas and also pulls in Dashboard data from Grafana.
+4. Site Hosted in Glitch (modifed version compared to Local hosted site) will pull and push data to Mongo DB Atlas ensuring both Glitch histed and Local hosted site remain in sync regarding data.
+5. Custom Python scripts automate tasks suck as pushing live wether reading data to Mongo DB Atlas once a day, and also anlyse data in InfluxDB at scheduled times/days on a previous 4 hour period to send or not send data variables to IFTTT for notifications to user (defrost car windows with minimum temperature and maximum humidity readings).
+6. Sense Hat in an enclosure tranlastes temperature into visual feedback for user based on readings read from InfluxDB (add on to Wether Buddy Eco System).
+
 ## Folder Structure: 
 
 ### InlfluxDB
