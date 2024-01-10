@@ -41,6 +41,7 @@ client = InfluxDBClient(url="http://192.168.68.115:8086", token=token)
 ifttt_key = os.getenv('IFFTTT_KEY')
 ifttt_event = os.getenv('IFTTT_EVENT')
 ifttt_event_station_down = os.getenv('IFTTT_EVENT_DOWN_STATION')
+ifttt_event_icy = os.getenv('IFTTT_EVENT_ICY')
 
 #------------------------------------------------------------------#
 #---------- outside weather station down alert connection ---------#
@@ -94,24 +95,6 @@ def check_conditions():
     time_4_hours_ago = datetime.now() - timedelta(hours=4)
     # time_4_hours_ago_str = time_4_hours_ago.strftime('%Y-%m-%dT%H:%M:%SZ')
 
-    # Query for temperature under 15 Celsius in the last 4 hours
-    query = f'from(bucket: "{bucket}") |> range(start: -4h) |> filter(fn: (r) => r._measurement == "temperature" and r._field == "value" and r._value < 15)'
-    result = client.query_api().query(query, org=org)
-    if not result:
-        return
-
-    # Query for humidity over 60 in the last 4 hours
-    query = f'from(bucket: "{bucket}") |> range(start: -4h) |> filter(fn: (r) => r._measurement == "humidity" and r._field == "value" and r._value > 60)'
-    result = client.query_api().query(query, org=org)
-    if not result:
-        return
-
-    # Query for wind speed under 5 in the last 4 hours
-    query = f'from(bucket: "{bucket}") |> range(start: -4h) |> filter(fn: (r) => r._measurement == "wind speed" and r._field == "value" and r._value < 5)'
-    result = client.query_api().query(query, org=org)
-    if not result:
-        return
-    
     # Query for minimum temperature in the last 4 hours
     query = f'from(bucket: "{bucket}") |> range(start: -4h) |> filter(fn: (r) => r._measurement == "temperature" and r._field == "value") |> min()'
     result = client.query_api().query(query, org=org)
@@ -121,6 +104,32 @@ def check_conditions():
     query = f'from(bucket: "{bucket}") |> range(start: -4h) |> filter(fn: (r) => r._measurement == "humidity" and r._field == "value") |> max()'
     result = client.query_api().query(query, org=org)
     max_humidity = result[0].records[0].get_value()
+
+    # Query for temperature between 0 and 2 Celsius in the last 4 hours
+    query = f'from(bucket: "{bucket}") |> range(start: -4h) |> filter(fn: (r) => r._measurement == "temperature" and r._field == "value" and r._value >= 0 and r._value <= 2)'
+    result = client.query_api().query(query, org=org)
+    if not result:
+        return
+    
+    # Query for temperature below 0 Celsius in the last 4 hours
+    query = f'from(bucket: "{bucket}") |> range(start: -4h) |> filter(fn: (r) => r._measurement == "temperature" and r._field == "value" and r._value < 0)'
+    result = client.query_api().query(query, org=org)
+    if result:
+        # Send data to a different IFTTT event if temperature is below 0
+        requests.post(f"https://maker.ifttt.com/trigger/{ifttt_event_icy}/with/key/{ifttt_key}", 
+                    data={"value1": min_temp, "value2": max_humidity})
+
+    # Query for humidity over 60 in the last 4 hours
+    query = f'from(bucket: "{bucket}") |> range(start: -4h) |> filter(fn: (r) => r._measurement == "humidity" and r._field == "value" and r._value > 60)'
+    result = client.query_api().query(query, org=org)
+    if not result:
+        return
+
+    # Query for wind speed under 5 in the last 4 hours
+    query = f'from(bucket: "{bucket}") |> range(start: -4h) |> filter(fn: (r) => r._measurement == "wind speed" and r._field == "value" and r._value < 3)'
+    result = client.query_api().query(query, org=org)
+    if not result:
+        return
 
     # Send data to IFTTT
     requests.post(f"https://maker.ifttt.com/trigger/{ifttt_event}/with/key/{ifttt_key}", 
